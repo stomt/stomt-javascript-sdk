@@ -1,7 +1,7 @@
 # stomt JavaScript-SDK [![Stomt API](https://img.shields.io/badge/stomt-v2.1.X-brightgreen.svg)](https://rest.stomt.com/)
 
 <a href="http://maxklenk.github.io/angular-sample-app/" title="sample application">
-<img alt="Easy Integration" align="right" width="380" src="https://rest.stomt.com/uploads/gMuJ/origin/gMuJdPd2leJKXyLTSOA7mIGxBFBLZQHQSDp2YBvf_origin.png"/>
+<img alt="Easy Integration" align="right" width="380" src="screenshot-form.png"/>
 </a>
 
 Our SDK allows you to add the feedback solution [www.stomt.com](https://www.stomt.com/) to your websites or any other HTML/JavaScript based applications. The SDK currently allows you to add a button to your website, which when used open a stomt creation form. In the form customers can choose if they want to speak a wish or praise your site and then enter their thoughts. All submitted ideas can then be manages on the stomt website, where they can be discussed, voted and finally come true. 
@@ -59,6 +59,10 @@ Optionally you can set the `position` of the button, the default possition is `r
 ```JavaScript
 Stomt.push(['addTab', {targetId: 'stomt-javascript-sdk', position: 'left'}]);
 ```
+
+<a href="http://maxklenk.github.io/angular-sample-app/" title="sample application">
+<img alt="Easy Integration" align="right" width="380" src="screenshot-success.png"/>
+</a>
 
 
 ## Contribution
