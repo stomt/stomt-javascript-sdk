@@ -60,9 +60,41 @@ Optionally you can set the `position` of the button, the default possition is `r
 Stomt.push(['addTab', {targetId: 'stomt-javascript-sdk', position: 'left'}]);
 ```
 
+
 <a href="http://maxklenk.github.io/angular-sample-app/" title="sample application">
 <img alt="Easy Integration" align="right" width="380" src="screenshot-success.png"/>
 </a>
+
+
+### options.label
+
+The default label of the button is `Feedback`, you can change that by passing another `label`:
+```JavaScript
+Stomt.push(['addTab', {targetId: 'stomt-javascript-sdk', label: 'Speak your wish!'}]);
+```
+
+### options.colorText
+
+To change the colors used for the widget button you have three options to configure.
+The first one is `colorText`, it allows you to change the text color (default: `#FFFFFF`):
+```JavaScript
+Stomt.push(['addTab', {targetId: 'stomt-javascript-sdk', color: '#FFFFFF'}]);
+```
+
+### options.colorBackground
+
+The `colorBackground` option allows you to change the background color of the button (default: `#0091C9`):
+```JavaScript
+Stomt.push(['addTab', {targetId: 'stomt-javascript-sdk', colorBackground: '#0091C9'}]);
+```
+
+
+### options.colorHover
+
+The `colorHover` option allows you to change the background color of the button when the user hovers it (default: `#04729E`):
+```JavaScript
+Stomt.push(['addTab', {targetId: 'stomt-javascript-sdk', colorHover: '#04729E'}]);
+```
 
 
 ## Contribution
