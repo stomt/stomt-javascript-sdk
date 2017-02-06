@@ -15,7 +15,7 @@ View the live demo [here](http://maxklenk.github.io/angular-sample-app/). The pr
 
 ## Installation
 
-To install the stomt JavaScript-SDK you have only to add the following lines to the bottom of you html file:
+To install the stomt JavaScript-SDK you only have to add the following lines to the bottom of you html file and adjust the "targetId" at the bottom of the script to your business profiles username. 
 
 ```html
 <script>
@@ -29,15 +29,14 @@ To install the stomt JavaScript-SDK you have only to add the following lines to 
     s.parentNode.insertBefore(t,s);
   })(window, document, 'script', '//www.stomt.com/widget.js');
   
-  // Add a button to the website which opens a creation modal
-  // -> the targetID is your pages identifier you can copy it from the pages url
-  //    https://www.stomt.com/stomt-javascript-sdk -> stomt-javascript-sdk
-  //
-  Stomt.push(['addTab', {targetId: 'stomt-javascript-sdk'}]);
+  /// !!!!!!!!!! IMPORTANT !!!!!!!!!!
+  // ADJUST THE 'YOUR BUSINESS PAGE USERNAME' to your businesses username 
+  // -> https://www.stomt.com/my-business -> my-business
+  /// !!!!!!!!!! IMPORTANT !!!!!!!!!!
+  Stomt.push(['addTab', {targetId: 'YOUR BUSINESS PAGE USERNAME'}]);
 </script>
 ```
-
-
+Copy & paste, done! You have further options to customize the widget. See the documentation part below.
 
 ## Documentation
 
