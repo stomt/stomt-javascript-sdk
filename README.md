@@ -96,6 +96,38 @@ Stomt.push(['addTab', {targetId: 'stomt-javascript-sdk', colorHover: '#04729E'}]
 ```
 
 
+### Custom CSS
+
+The feedback button can be styled and positioned using the css class `.stomt-button`.
+
+For example: 
+
+```css
+/* round button in the bottom right corner */
+.stomt-button {
+  height: auto;
+  border-radius: 50%;
+  right: 50px;
+  bottom: 50px;
+  color: transparent;
+
+  transform: none;
+  float: none;
+  padding: 0;
+}
+
+/* overwrite the content with a custom icon */
+.stomt-button:before {
+  font-family: "my-icon-font";
+  line-height: 1;
+  display: inline-block;
+  content: "my-custom-icon";
+  color: #ffffff;
+  font-size: 40px;
+  padding: 5px;
+}
+```
+
 ## Contribution
 
 We would love to see you contributing with your ideas to the stomt JavaScript-SDK. Please addess all your wishes to the [stomt SDK (JS) on stomt](https://www.stomt.com/stomt-javascript-sdk). 
