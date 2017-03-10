@@ -29,11 +29,9 @@ To install the stomt JavaScript-SDK you only have to add the following lines to 
     s.parentNode.insertBefore(t,s);
   })(window, document, 'script', '//www.stomt.com/widget.js');
   
-  /// !!!!!!!!!! IMPORTANT !!!!!!!!!!
-  // ADJUST THE 'YOUR BUSINESS PAGE USERNAME' to your businesses username 
+  // ADJUST THE 'PAGENAME' to your businesses username 
   // -> https://www.stomt.com/my-business -> my-business
-  /// !!!!!!!!!! IMPORTANT !!!!!!!!!!
-  Stomt.push(['addTab', {targetId: 'YOUR BUSINESS PAGE USERNAME'}]);
+  Stomt.push(['addTab', {targetId: 'PAGENAME'}]);
 </script>
 ```
 Copy & paste, done! You have further options to customize the widget. See the documentation part below.
