@@ -75,7 +75,7 @@ Stomt.push(['addTab', {targetId: 'stomt-javascript-sdk', label: 'Speak your wish
 To change the colors used for the widget button you have three options to configure.
 The first one is `colorText`, it allows you to change the text color (default: `#FFFFFF`):
 ```JavaScript
-Stomt.push(['addTab', {targetId: 'stomt-javascript-sdk', color: '#FFFFFF'}]);
+Stomt.push(['addTab', {targetId: 'stomt-javascript-sdk', colorText: '#FFFFFF'}]);
 ```
 
 ### options.colorBackground
