@@ -126,6 +126,20 @@ For example:
 }
 ```
 
+## WebView / Iframe
+
+Instead of using the Javascript snippet you can access the creation page directly in a WebView or Iframe. (For many platforms we did this step for you already and you can grab one of our [SDKs](http://stomt.web/dev).
+
+To embed the creation form use this url: [https://www.stomt.com/widget](https://www.stomt.com/widget)
+
+You can attach multiple parameters to customize it for your project:
+
+* `?to=stomt`: Add your page id to disable the target search and select your project on page load (default: empty)
+* `?positive=true`: Indicate if 'I wish' or 'I like' should be preselected (default: false)
+* `?text=would+be`: Add a custom default text, this replaces the 'would'/'because' we dispaly as default
+* `?url=https://www.stomt.com/blog/`: Attach a url to the stomt (default: empty)
+
+
 ## Contribution
 
 We would love to see you contributing with your ideas to the stomt JavaScript-SDK. Please addess all your wishes to the [stomt SDK (JS) on stomt](https://www.stomt.com/stomt-javascript-sdk). 
