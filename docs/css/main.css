@@ -1,0 +1,37 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+
+.jumbotron h1 {
+	font-size: 44px;
+	text-align: center;
+}
+
+.navbar-inverse {
+	background-color: #0a2965;
+}
+
+.navbar-inverse .navbar-brand {
+	color: white;
+}
+
+
+
+.stomt-feed-iframe {
+	min-height: 500px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
