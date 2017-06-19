@@ -18,7 +18,7 @@ To connect your site to stomt, [create a project page on stomt](https://www.stom
 
 ## Demo
 
-View the live demo [here](http://maxklenk.github.io/angular-sample-app/). The projects [source](https://github.com/maxklenk/angular-sample-app) can be found on GitHub, it itegrates the sdk dynamically in the [index.html](https://github.com/maxklenk/angular-sample-app/blob/master/app/index.html#L58) file.
+View the live demo [here](https://stomt.github.io/stomt-javascript-sdk/). The projects [source](https://github.com/stomt/stomt-javascript-sdk/tree/master/docs) can be found on GitHub, it itegrates the sdk dynamically in the [index.html](https://github.com/stomt/stomt-javascript-sdk/blob/master/docs/index.html#L99) file.
 
 
 ## Installation
