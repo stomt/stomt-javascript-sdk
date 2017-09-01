@@ -1,4 +1,4 @@
-# stomt JavaScript-SDK [![Stomt API](https://img.shields.io/badge/stomt-v2.1.X-brightgreen.svg)](https://rest.stomt.com/)
+# STOMT JavaScript-SDK [![Stomt API](https://img.shields.io/badge/stomt-v2.1.X-brightgreen.svg)](https://rest.stomt.com/)
 
 <a href="http://maxklenk.github.io/angular-sample-app/" title="sample application">
 <img alt="Easy Integration" align="right" width="380" src="screenshot-form.png"/>
@@ -12,9 +12,9 @@
 * [Webview / Iframe](#webview--iframe)
 * [Contribution](#contribution)
 
-Our SDK allows you to add the feedback solution [www.stomt.com](https://www.stomt.com/) to your websites or any other HTML/JavaScript based applications. The SDK currently allows you to add a button to your website, which when used open a stomt creation form. In the form customers can choose if they want to speak a wish or praise your site and then enter their thoughts. All submitted ideas can then be manages on the stomt website, where they can be discussed, voted and finally come true. 
+Our SDK allows you to add the feedback solution [www.stomt.com](https://www.stomt.com/) to your websites or any other HTML/JavaScript based applications. The SDK currently allows you to add a button to your website, which when used open a STOMT creation form. In the form customers can choose if they want to speak a wish or praise your site and then enter their thoughts. All submitted ideas can then be manages on the STOMT website, where they can be discussed, voted and finally come true. 
 
-To connect your site to stomt, [create a project page on stomt](https://www.stomt.com/createTarget) first.
+To connect your site to STOMT, [create a project page on stomt](https://www.stomt.com/createTarget) first.
 
 ## Demo
 
@@ -23,13 +23,13 @@ View the live demo [here](https://stomt.github.io/stomt-javascript-sdk/). The pr
 
 ## Installation
 
-To install the stomt JavaScript-SDK you only have to add the following lines to the bottom of you html file and adjust the "targetId" at the bottom of the script to your business profiles username. 
+To install the STOMT JavaScript-SDK you only have to add the following lines to the bottom of you html file and adjust the "targetId" at the bottom of the script to your business profiles username. 
 
 ```html
 <div id="stomt_feed"></div> <!-- if you want to include a feed -->
 <div id="stomt_create"></div> <!-- if you want to include a feed -->
 <script>
-  // Include the Stomt JavaScript SDK
+  // Include the STOMT JavaScript SDK
   (function(w, d, n, r, t, s){
     w.Stomt = w.Stomt||[];
     t = d.createElement(n);
@@ -285,14 +285,16 @@ e.g. `https://www.stomt.com/widget-feed?targetId=stomt&callEN=Tell+us+what+you+m
 
 ## Contribution
 
-We would love to see you contributing with your ideas to the stomt JavaScript-SDK. Please addess all your wishes to the [stomt SDK (JS) on stomt](https://www.stomt.com/stomt-javascript-sdk). 
+We would love to see you contributing with your ideas to the STOMT JavaScript-SDK. Please addess all your wishes to the [STOMT SDK (JS) on STOMT](https://www.stomt.com/stomt-javascript-sdk). 
 
 ## Authors
 
 * [Max Klenk](https://github.com/maxklenk)
 
-## More about stomt
+## More about STOMT
 
 * On the web [www.stomt.com](https://www.stomt.com)
-* [stomt for iOS](http://stomt.co/ios)
-* [stomt for Android](http://stomt.co/android)
+* [STOMT for iOS](http://stomt.co/ios)
+* [STOMT for Android](http://stomt.co/android)
+* [STOMT for Unreal Engine](http://stomt.co/unreal)
+* [STOMT for Unity 3D Engine](http://stomt.co/unity)
