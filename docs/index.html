@@ -12,26 +12,6 @@
     <link rel="shortcut icon" href="https://cdn.stomt.com/favicon32.ico"/>
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    
-    <script>
-      // Include the Stomt JavaScript SDK
-      (function(w, d, n, r, t, s){
-        w.Stomt = w.Stomt||[];
-        t = d.createElement(n);
-        s = d.getElementsByTagName(n)[0];
-        t.async=1;
-        t.src=r;
-        s.parentNode.insertBefore(t,s);
-      })(window, document, 'script', 'https://www.stomt.com/widget.js');
-
-      // ADJUST THE 'PAGENAME' to your businesses username
-      // -> https://www.stomt.com/my-business -> my-business
-      // Stomt.push(['addTab', {targetId: 'PAGENAME'}]);
-      Stomt.push(['addTab', {targetId: 'stomt-javascript-widget'}]);
-      Stomt.push(['addFeed', {targetId: 'stomt-javascript-widget'}]);
-      Stomt.push(['addCreate', {targetId: 'stomt-javascript-widget'}]);
-    </script>
-    
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <style>
         body {
@@ -88,7 +68,20 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+<script>
+  // Include the Stomt JavaScript SDK
+  (function(w, d, n, r, t, s){
+    w.Stomt = w.Stomt||[];
+    t = d.createElement(n);
+    s = d.getElementsByTagName(n)[0];
+    t.async=1;
+    t.src=r;
+    s.parentNode.insertBefore(t,s);
+  })(window, document, 'script', 'https://www.stomt.com/widget.js');
 
+  Stomt.push(['addTab', {targetId: 'stomt-javascript-widget'}]);
+</script>
+    
 <div class="header-desktop">
     <div class="header-desktop-content">
         <a class="nav-logo" href="/">
@@ -136,6 +129,17 @@
             <script src="https://gist.github.com/maxklenk/b6168319d87cdf8be37a35e4b4315b3b.js"></script>
         </div>
     </div>
+    
+    <!-- Creation -->
+    <div class="row" id="creation">
+        <div class="col-md-8 col-md-offset-2">
+            <h2 id="inline-creation">Creation Form</h2>
+            <p>Add a STOMT creation form on your website to engage with our community or customers. Integrate it after a checkout, logout or other customer interaction to get their feedback as fresh as possible. To add the form have a look at our <a class="" href="">full documentation</a>.</p>
+
+            <div id="stomt_create" class="text-center"></div>
+            <script>Stomt.push(['addCreate', {targetId: 'stomt-javascript-widget'}]);</script>
+        </div>
+    </div>
 
     <!-- Feed -->
     <div class="row" id="feed">
@@ -144,16 +148,7 @@
             <p>You want to show your community what others wished for? You want them to vote for the ideas they like most, so you can choose the most popular ones easily? Then the STOMT Inline Feed is the right option for you.</p>
             <p>To integrate it copy the widget code from above and add the "addFeed" command as documented <a class="" href="">here</a>.</p>
             <div id="stomt_feed" class="text-center"></div>
-        </div>
-    </div>
-
-    <!-- Creation -->
-    <div class="row" id="creation">
-        <div class="col-md-8 col-md-offset-2">
-            <h2 id="inline-creation">Creation Form</h2>
-            <p>Add a STOMT creation form on your website to engage with our community or customers. Integrate it after a checkout, logout or other customer interaction to get their feedback as fresh as possible. To add the form have a look at our <a class="" href="">full documentation</a>.</p>
-
-            <div id="stomt_create" class="text-center"></div>
+            <script>Stomt.push(['addFeed', {targetId: 'stomt-javascript-widget'}]);</script>
         </div>
     </div>
 
