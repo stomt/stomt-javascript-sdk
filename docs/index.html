@@ -12,7 +12,26 @@
     <link rel="shortcut icon" href="https://cdn.stomt.com/favicon32.ico"/>
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    
+    <script>
+      // Include the Stomt JavaScript SDK
+      (function(w, d, n, r, t, s){
+        w.Stomt = w.Stomt||[];
+        t = d.createElement(n);
+        s = d.getElementsByTagName(n)[0];
+        t.async=1;
+        t.src=r;
+        s.parentNode.insertBefore(t,s);
+      })(window, document, 'script', 'https://www.stomt.com/widget.js');
 
+      // ADJUST THE 'PAGENAME' to your businesses username
+      // -> https://www.stomt.com/my-business -> my-business
+      // Stomt.push(['addTab', {targetId: 'PAGENAME'}]);
+      Stomt.push(['addTab', {targetId: 'stomt-javascript-widget'}]);
+      Stomt.push(['addFeed', {targetId: 'stomt-javascript-widget'}]);
+      Stomt.push(['addCreate', {targetId: 'stomt-javascript-widget'}]);
+    </script>
+    
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <style>
         body {
@@ -144,25 +163,6 @@
         <p>&copy; STOMT 2017</p>
     </footer>
 </div> <!-- /container -->
-
-<script>
-  // Include the Stomt JavaScript SDK
-  (function(w, d, n, r, t, s){
-    w.Stomt = w.Stomt||[];
-    t = d.createElement(n);
-    s = d.getElementsByTagName(n)[0];
-    t.async=1;
-    t.src=r;
-    s.parentNode.insertBefore(t,s);
-  })(window, document, 'script', 'https://www.stomt.com/widget.js');
-
-  // ADJUST THE 'PAGENAME' to your businesses username
-  // -> https://www.stomt.com/my-business -> my-business
-  // Stomt.push(['addTab', {targetId: 'PAGENAME'}]);
-  Stomt.push(['addTab', {targetId: 'stomt-javascript-widget'}]);
-  Stomt.push(['addFeed', {targetId: 'stomt-javascript-widget'}]);
-  Stomt.push(['addCreate', {targetId: 'stomt-javascript-widget'}]);
-</script>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID.
 <script>
