@@ -1,4 +1,4 @@
-# STOMT JavaScript-SDK [![Stomt API](https://img.shields.io/badge/stomt-v2.1.X-brightgreen.svg)](https://rest.stomt.com/)
+# STOMT JavaScript-SDK [![Stomt API](https://img.shields.io/badge/stomt-v2.10.X-brightgreen.svg)](https://rest.stomt.com/)
 
 <a href="http://maxklenk.github.io/angular-sample-app/" title="sample application">
 <img alt="Easy Integration" align="right" width="380" src="screenshot-form.png"/>
