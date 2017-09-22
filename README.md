@@ -274,11 +274,14 @@ Stomt.push(['addCreate', {targetId: 'stomt-javascript-sdk', lang: 'de'}]);
 
 Instead of using the Javascript snippet you can access the feed page directly in a WebView or Iframe. (For many platforms we did this step for you already and you can grab one of our [SDKs](http://stomt.web/dev).
 
-To embed the feed use this url: [https://www.stomt.com/widget-feed](https://www.stomt.com/widget-feed)
+
+To embed the form use this url: [https://www.stomt.com/widget](https://www.stomt.com/widget)
+
+To embed the feed use this url: [https://www.stomt.com/feedwidget](https://www.stomt.com/feedwidget)
 
 You can attach all the parameters introduced before (`options.targetId`, ...) to customize the feed for your project:
 
-e.g. `https://www.stomt.com/widget-feed?targetId=stomt&callEN=Tell+us+what+you+miss`
+e.g. `https://www.stomt.com/widget?targetId=stomt&callEN=Tell+us+what+you+miss`
 
 
 
