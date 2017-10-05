@@ -301,7 +301,7 @@ For example:
 }
 ```
 
-To change the content inside the iframe use the same method as descibed above in [addTab - Custom CSS](#custom-css).
+To change the content inside the iframe use the same method as described above in [addTab - Custom CSS](#custom-css).
 
 
 ## Documentation - addCreate
@@ -334,7 +334,7 @@ Stomt.push(['addCreate', {targetId: 'stomt-javascript-sdk', lang: 'de'}]);
 
 ### Custom CSS
 
-To change the content inside the iframe use the same method as descibed above in [addTab - Custom CSS](#custom-css).
+To change the content inside the iframe use the same method as described above in [addTab - Custom CSS](#custom-css).
 
 
 ## WebView / Iframe
