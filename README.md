@@ -138,6 +138,67 @@ For example:
 }
 ```
 
+To add custom styling to the widget itself please add a `<style>` tag to the page containing the STOMT widget. This tag will be put inside the iframe to overwrite the default styling.
+
+To allow us to read the tag please add the attribute `stomt-widget` to the `<style>` tag: `<style stomt-widget>`. To be sure that your styles overwrite the default styling please use `!important`.
+
+An example for custom styles can be found below:
+
+```html
+<style stomt-widget>
+  /* customize wish/like bubble color */
+  /* NOTE: please adjust the font color when changing the background-color */
+  .stomt-create-bubble--wish {
+    background-color: blue !important;
+    border-color: blue !important;
+    color: white !important;
+  }
+  .stomt-create-bubble--like {
+    background-color: green !important;
+    border-color: green !important;
+    color: white !important;
+  }
+
+  /* customize target bubble */
+  /* NOTE: please adjust the font color when changing the background-color */
+  .stomt-create-target-bubble {
+    background-color: darkgray !important;
+    border-color: darkgray !important;
+    color: white !important;
+  }
+
+  /* customize widget background color*/
+  /* NOTE: when changing the background color you might have to adjust header and footer colors*/
+  .stomtApp body {
+    background: white !important;
+  }
+
+  /* customize header color */
+  .feed-headline-small {
+    color: black !important;
+  }
+
+  .widget-footer {
+    background: white;
+  }
+
+  /* customize footer color */
+  .widget-footer a {
+    color: black !important;
+  }
+
+  /* customize submit button color */
+  /* NOTE: please adjust the font color when changing the background-color */
+  .stomt-form-submit {
+    background-color: green !important;
+    color: white !important;
+  }
+  .stomt-form-submit--disabled {
+    background-color: darkgray !important;
+  }
+</style>
+```
+
 
 ## Documentation - addFeed
 
@@ -240,6 +301,8 @@ For example:
 }
 ```
 
+To change the content inside the iframe use the same method as descibed above in [addTab - Custom CSS](#custom-css).
+
 
 ## Documentation - addCreate
 
@@ -268,6 +331,10 @@ Force the default language of the user interface and the stomt creation form.
 ```JavaScript
 Stomt.push(['addCreate', {targetId: 'stomt-javascript-sdk', lang: 'de'}]);
 ```
+
+### Custom CSS
+
+To change the content inside the iframe use the same method as descibed above in [addTab - Custom CSS](#custom-css).
 
 
 ## WebView / Iframe
