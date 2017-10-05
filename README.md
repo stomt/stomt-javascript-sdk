@@ -179,7 +179,7 @@ An example for custom styles can be found below:
   }
 
   .widget-footer {
-    background: white;
+    background: white !important;
   }
 
   /* customize footer color */
