@@ -13,58 +13,6 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <style>
-        body {
-            padding-top: 30px;
-            padding-bottom: 20px;
-            font-family: 'Lato', sans-serif;
-        }
-        .header-desktop {
-            position: fixed;
-            left: 0;
-            right: 0;
-            top: 0;
-            height: 52px;
-            z-index: 15;
-            background-color: #121122;
-            background-image: url(https://cdn.stomt.com/images/header-bg.png);
-            box-shadow: 0 1px 2px rgba(0,0,0, 0.5);
-        }
-        .header-desktop-content {
-            max-width: 1280px;
-            margin: auto;
-            padding: 8px 28px;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            background: transparent;
-        }
-        .nav-logo {
-            display: inline-block;
-            width: 200px;
-            position: relative;
-            outline: none;
-            text-indent: 100%;
-            white-space: nowrap;
-            overflow: hidden;
-        }
-        .nav-logo .logo {
-            background-image: url(https://cdn.stomt.com/images/stomt-logo.svg);
-            background-size: contain;
-            background-repeat: no-repeat;
-            height: 36px;
-        }
-        .nav-logo h1 {
-            background-image: url(https://cdn.stomt.com/images/stomt-wordmark-white.svg);
-            background-size: contain;
-            background-repeat: no-repeat;
-            position: absolute;
-            margin-left: 54px;
-            white-space: nowrap;
-            top: -10px;
-            height: 16px;
-        }
-    </style>
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
@@ -127,6 +75,15 @@
             <p>Do you see the "Feedback" button to the right? This is how the STOMT website widget looks like. Always just one click away users can leave valuable feedback.</p>
             <p>To install the stomt JavaScript-SDK you only have to add the following lines to the bottom of you html file and adjust the "targetId" at the bottom of the script to your business profiles username:</p>
             <script src="https://gist.github.com/maxklenk/b6168319d87cdf8be37a35e4b4315b3b.js"></script>
+        </div>
+    </div>
+
+    <!-- Third Party Integrationa -->
+    <div class="row" id="integrations">
+        <div class="col-md-8 col-md-offset-2">
+            <a href="https://wordpress.org/plugins/stomt-instant-feedback-button/" target="_blank"><button class="btn btn-primary">Wordpress</button></a>
+            <a href="https://www.drupal.org/project/stomt" target="_blank"><button class="btn btn-primary">Drupal</button></a>
+            <a href="https://github.com/stomt/stomt-kirby-extension" target="_blank"><button class="btn btn-primary">Kirby CMS</button></a>
         </div>
     </div>
     

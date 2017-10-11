@@ -4,6 +4,56 @@
    Author's custom styles
    ========================================================================== */
 
+body {
+  padding-top: 30px;
+  padding-bottom: 20px;
+  font-family: 'Lato', sans-serif;
+}
+.header-desktop {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 52px;
+  z-index: 15;
+  background-color: #121122;
+  background-image: url(https://cdn.stomt.com/images/header-bg.png);
+  box-shadow: 0 1px 2px rgba(0,0,0, 0.5);
+}
+.header-desktop-content {
+  max-width: 1280px;
+  margin: auto;
+  padding: 8px 28px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: transparent;
+}
+.nav-logo {
+  display: inline-block;
+  width: 200px;
+  position: relative;
+  outline: none;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.nav-logo .logo {
+  background-image: url(https://cdn.stomt.com/images/stomt-logo.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 36px;
+}
+.nav-logo h1 {
+  background-image: url(https://cdn.stomt.com/images/stomt-wordmark-white.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  margin-left: 54px;
+  white-space: nowrap;
+  top: -10px;
+  height: 16px;
+}
 
 .jumbotron h1 {
   font-size: 44px;
@@ -21,8 +71,6 @@
 .stomt-feed-iframe {
   min-height: 500px;
 }
-
-
 
 
 
