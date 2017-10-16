@@ -286,6 +286,29 @@ Filter what kind of stomts you want to show, e.g. `wish`,`like`
 Stomt.push(['addFeed', {targetId: 'stomt-javascript-sdk', is: 'wish'}]);
 ```
 
+### options.resize
+Resize the iframe height automatically when the content changes. Set this option to `false` to disable resizing.
+
+```JavaScript
+Stomt.push(['addFeed', {targetId: 'stomt-javascript-sdk', resize: false}]);
+```
+
+### options.limit
+Choose how may stomts should be displayed maximal. (default: no limit)
+
+```JavaScript
+Stomt.push(['addFeed', {targetId: 'stomt-javascript-sdk', limit: 50}]);
+```
+
+
+### options.initial
+Choose how may stomts should be requested. (default: `15`)
+
+```JavaScript
+Stomt.push(['addFeed', {targetId: 'stomt-javascript-sdk', initial: 20}]);
+```
+
+
 ### Custom CSS
 
 The stomt feed can be styled and positioned using the css class `.stomt-feed-iframe`.
