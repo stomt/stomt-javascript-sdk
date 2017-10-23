@@ -9,6 +9,7 @@
   * [addTab](#documentation---addtab)
   * [addFeed](#documentation---addfeed)
   * [addCreate](#documentation---addcreate)
+  * [Events](#documentation---events)
 * [Webview / Iframe](#webview--iframe)
 * [Contribution](#contribution)
 
@@ -53,6 +54,40 @@ Copy & paste, done! You have further options to customize the widget. See the do
 The current version allows you to add a Feedback button to your page:
 ```JavaScript
 Stomt.push(['addTab', options]);
+```
+
+### showTab
+
+You can use the `showTab(options)` method to show the widget if it is hidden.
+```JavaScript
+Stomt.push(['showTab', options]);
+// or if you are sure the JS finished loading
+Stomt.showTab(options);
+```
+
+### hideTab
+
+You can use the `hideTab()` method to hide the widget.
+```JavaScript
+Stomt.push(['hideTag']);
+// or if you are sure the JS finished loading
+Stomt.hideTab();
+```
+
+### toggleTab
+
+You can use the `toggleTab(options)` method to toggle the widget.
+```JavaScript
+Stomt.push(['toggleTab']);
+// or if you are sure the JS finished loading
+Stomt.toggleTab();
+```
+
+### updateTabFile
+
+You can use the `updateTabFile()` method to set a new file for the Tab Widget. The next times a STOMT is created this file is attached.
+```JavaScript
+Stomt.updateTabFile(file);
 ```
 
 ### options.targetId
@@ -105,6 +140,28 @@ The `colorHover` option allows you to change the background color of the button 
 Stomt.push(['addTab', {targetId: 'stomt-javascript-sdk', colorHover: '#04729E'}]);
 ```
 
+### options.file
+
+By attaching a JSON object with the properties `name` (String) and `data` (Object) to the property `file`, data can be attached to STOMTs that are submitted from the Tab Widget:
+```JavaScript
+Stomt.push(['addTab', {targetId: 'stomt-javascript-sdk', file: {name: 'fileName.file', data: Object}}]);
+```
+Include the file extension in the file name to ensure that it is treated correctly after download.
+
+### options.showClose
+
+Via the `showClose` property, you can specify whether the Close Icon in the Tab Widget should be shown or not (default: `true`):
+```JavaScript
+Stomt.push(['addTab', {targetId: 'stomt-javascript-sdk', showClose: false}]);
+```
+
+### options.preload
+
+By setting the property `preload` to `true`, you can tell the Widget to preload the Tab iframe in the background (default: `false`). This reduces the loading delay when showing the Tab for the first time.
+```JavaScript
+Stomt.push(['addTab', {targetId: 'stomt-javascript-sdk', preload: true}]);
+```
+  
 
 ### Custom CSS
 
@@ -329,9 +386,34 @@ To change the content inside the iframe use the same method as described above i
 
 ## Documentation - addCreate
 
-The current version allows you to add a STOMT feed somewhere on your page, it searched for an element with the id `stomt_create` and adds the creation form in this element:
+The current version allows you to add a STOMT creation form somewhere on your page, it searched for an element with the id `stomt_create` and adds the creation form in this element:
 ```JavaScript
 Stomt.push(['addCreate', options]);
+```
+
+### showCreate
+
+You can use the `showCreate(options)` method to show the widget if it is hidden or if it has been added with the `preload` flag.
+```JavaScript
+Stomt.push(['showCreate', options]);
+// or if you are sure the JS finished loading
+Stomt.showCreate(options);
+```
+
+### hideCreate
+
+You can use the `hideCreate()` method to hide the widget.
+```JavaScript
+Stomt.push(['hideCreate', options]);
+// or if you are sure the JS finished loading
+Stomt.hideCreate(options);
+```
+
+### updateCreateFile
+
+You can use the `updateCreateFile()` method to set a new file for the Create Widget. The next times a STOMT is created this file is attached.
+```JavaScript
+Stomt.updateCreateFile(file);
 ```
 
 ### options.targetId (required)
@@ -355,10 +437,53 @@ Force the default language of the user interface and the stomt creation form.
 Stomt.push(['addCreate', {targetId: 'stomt-javascript-sdk', lang: 'de'}]);
 ```
 
+### options.file
+
+By attaching a JSON object with the properties `name` (String) and `data` (Object) to the property `file`, data can be attached to STOMTs that are submitted from the Create Widget:
+```JavaScript
+Stomt.push(['addCreate', {targetId: 'stomt-javascript-sdk', file: {name: 'fileName.file', data: Object}}]);
+```
+Include the file extension in the file name to ensure that it is treated correctly after download.
+
+### options.preload
+
+By setting the property `preload` to `true`, you can tell the Widget to preload the Create iframe in the background (default: `false`). This reduces the loading delay when showing the Widget for the first time. 
+
+Important: When using the `preload` flag, the iframe will not be shown initially. You have to explicitly show it via `Stomt.showCreate`.
+```JavaScript
+Stomt.push(['addCreate', {targetId: 'stomt-javascript-sdk', preload: true}]);
+```
+  
+
 ### Custom CSS
 
 To change the content inside the iframe use the same method as described above in [addTab - Custom CSS](#custom-css).
 
+## Documentation - events
+
+You can register Event Listeners to react on user interactions with the widget by calling `registerWidgetListener`. Registered Callbacks can be removed via the `removeWidgetListener` method.
+```JavaScript
+function callback (data) {
+  ...
+}
+
+Stomt.push(['registerWidgetListener', 'eventType', callback]);
+// or if you are sure the JS finished loading
+Stomt.registerWidgetListener('eventType', callback);
+// to remove the callback
+Stomt.removeWidgetListener('eventType', callback)
+```
+
+Available events are:
+- for the Feed Widget: 
+    - `stomtFeed-resize`: listen to resize events of the iframe. Only works when the `resize` flag is set to true.
+- for the Tab Widget:
+    - `stomtTab-hide`/`stomtTab-show`: is fired when the visibility of the Tab Widget changes.
+- for the Create Widget:
+    - `stomtCreate-hide`/`stomtCreate-show`: is fired when the visibility of the Create Widget changes.
+- for all Widgets:
+    - `widgetType` + `-stomtCreated`: is fired when a user submitted a STOMT. The event data handed to the callback contains the created STOMT and the SDK the event originated from.
+    - `widgetType` + `-subscribed`: is fired when a user subscribed your target via the Widget. The event data handed to the callback contains the email or phone number used to subscribe and the SDK the event originated from.
 
 ## WebView / Iframe
 
