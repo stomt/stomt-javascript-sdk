@@ -22,12 +22,54 @@
     w.Stomt = w.Stomt||[];
     t = d.createElement(n);
     s = d.getElementsByTagName(n)[0];
-    t.async=1;
-    t.src=r;
-    s.parentNode.insertBefore(t,s);
-  })(window, document, 'script', 'https://www.stomt.com/widget.js');
+    t.async = 1;
+    t.src = r;
+    s.parentNode.insertBefore(t, s);
+  })(window, document, 'script', 'http://localhost:3000/widget.js');
+  Stomt.push(['addTab', {
+    targetId: 'stomt',
+    host: 'http://localhost:3000/',
+    preload: true,
+    file: {name: 'logs.json', data: {hallo: "asdasd", asdasd: "asdasd"}}
+  }]);
+</script>
 
-  Stomt.push(['addTab', {targetId: 'stomt-javascript-widget'}]);
+<script>
+  function creationWidgetCallbackShow() {
+    console.log('creation callback show');
+  }
+
+  function creationWidgetCallbackHide() {
+    console.log('creation callback hide');
+  }
+
+  function tabWidgetCallbackShow() {
+    console.log('tab callback show');
+  }
+
+  function tabWidgetCallbackHide() {
+    console.log('tab callback hide');
+  }
+
+  function feedWidgetCallbackResize() {
+    console.log('feed callback resize');
+  }
+
+  function widgetCallbackCreated(data) {
+    console.log('widget callback stomt created:', data);
+  }
+
+  function widgetCallbackSubscribed(data) {
+    console.log('widget callback subscribed:', data);
+  }
+
+  Stomt.push(['registerWidgetListener', 'stomtCreate-show', creationWidgetCallbackShow]);
+  Stomt.push(['registerWidgetListener', 'stomtCreate-hide', creationWidgetCallbackHide]);
+  Stomt.push(['registerWidgetListener', 'stomtTab-show', tabWidgetCallbackShow]);
+  Stomt.push(['registerWidgetListener', 'stomtTab-hide', tabWidgetCallbackHide]);
+  Stomt.push(['registerWidgetListener', 'stomtFeed-resize', feedWidgetCallbackResize]);
+  Stomt.push(['registerWidgetListener', 'stomtCreate-stomtCreated', widgetCallbackCreated]);
+  Stomt.push(['registerWidgetListener', 'stomtCreate-subscribed', widgetCallbackSubscribed]);
 </script>
     
 <div class="header-desktop">
@@ -68,6 +110,40 @@
     </div>
     -->
 
+  <h3>Testing Buttons</h3>
+  <p>See console for callback logs.</p>
+  <p>Replace widget host url with remote host if needed.</p>
+
+  <h4>Tab Widget Callbacks:</h4>
+  <button
+    onclick="Stomt.showTab({targetId: 'stomt-web', host: 'http://localhost:3000/', file: {name: 'newLogs.json', data: {asd: 'asd', ddd: 'ddd'}}})"
+  >
+    Show Stomt Tab
+  </button>
+  <button onclick="Stomt.hideTab()">Hide Stomt Tab</button>
+  <button onclick="Stomt.removeWidgetListener('stomtTab-show', tabWidgetCallbackShow)">Remove Show Callback</button>
+  <button onclick="Stomt.removeWidgetListener('stomtTab-hide', tabWidgetCallbackHide)">Remove Hide Callback</button>
+  <button onclick="Stomt.updateTabFile({name: 'superNewLogs.json', data: {ooo: 'ooo', ddd: 'ddd'}})">Update Tab File
+  </button>
+
+  <h4>Creation Widget Callbacks:</h4>
+
+  <button
+    onclick="Stomt.showCreate({targetId: 'stomt-web', host: 'http://localhost:3000/', file: {name: 'newLogs.json', data: {asd: 'asd', ddd: 'ddd'}}})">
+    Show Stomt Creation
+  </button>
+  <button onclick="Stomt.hideCreate()">Hide Stomt Creation</button>
+  <button onclick="Stomt.removeWidgetListener('stomtCreate-show', creationWidgetCallbackShow)">Remove Show Callback
+  </button>
+  <button onclick="Stomt.removeWidgetListener('stomtCreate-hide', creationWidgetCallbackHide)">Remove Hide Callback
+  </button>
+  <button onclick="Stomt.updateCreateFile({name: 'superNewLogs.json', data: {ooo: 'ooo', ddd: 'ddd'}})">Update Create
+    File
+  </button>
+
+  <br>
+  <br>
+
     <!-- Widget -->
     <div class="row" id="widget">
         <div class="col-md-8 col-md-offset-2">
@@ -93,10 +169,14 @@
             <h2 id="inline-creation">Creation Form</h2>
             <p>Add a STOMT creation form on your website to engage with our community or customers. Integrate it after a checkout, logout or other customer interaction to get their feedback as fresh as possible. To add the form have a look at our <a class="" href="https://github.com/stomt/stomt-javascript-sdk">full documentation</a>.</p>
 
-            <div id="stomt_create" class="text-center"></div>
-            <script>Stomt.push(['addCreate', {targetId: 'stomt-javascript-widget'}]);</script>
-        </div>
+      <div id="stomt_create" class="text-center"></div>
+      <script>Stomt.push(['addCreate', {
+        targetId: 'stomt',
+        host: 'http://localhost:3000/',
+        file: {name: 'logs.json', data: {hallo: "asdasd", asdasd: "asdasd"}}
+      }]);</script>
     </div>
+  </div>
 
     <!-- Feed -->
     <div class="row" id="feed">
@@ -105,7 +185,7 @@
             <p>You want to show your community what others wished for? You want them to vote for the ideas they like most, so you can choose the most popular ones easily? Then the STOMT Inline Feed is the right option for you.</p>
             <p>To integrate it copy the widget code from above and add the "addFeed" command as documented <a class="" href="https://github.com/stomt/stomt-javascript-sdk">here</a>.</p>
             <div id="stomt_feed" class="text-center"></div>
-            <script>Stomt.push(['addFeed', {targetId: 'stomt-javascript-widget'}]);</script>
+            <script>Stomt.push(['addFeed', {targetId: 'stomt', host: 'http://localhost:3000/', resize: true}]);</script>
         </div>
     </div>
 
