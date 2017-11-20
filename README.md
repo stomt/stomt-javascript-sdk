@@ -1,14 +1,12 @@
 # STOMT JavaScript-SDK [![Stomt API](https://img.shields.io/badge/stomt-v2.10.X-brightgreen.svg)](https://rest.stomt.com/)
 
-<a href="http://maxklenk.github.io/angular-sample-app/" title="sample application">
-<img alt="Easy Integration" align="right" width="380" src="screenshot-form.png"/>
-</a>
+<img alt="Easy Integration" align="right" width="380" src="tab-widget.png"/>
 
 * [Demo](#demo)
 * [Installation](#installation)
-  * [addTab](#documentation---addtab)
-  * [addFeed](#documentation---addfeed)
-  * [addCreate](#documentation---addcreate)
+  * [Tab](#documentation---tab)
+  * [Feed](#documentation---feed)
+  * [Create](#documentation---create)
   * [Events](#documentation---events)
 * [Webview / Iframe](#webview--iframe)
 * [Contribution](#contribution)
@@ -49,8 +47,10 @@ To install the STOMT JavaScript-SDK you only have to add the following lines to 
 ```
 Copy & paste, done! You have further options to customize the widget. See the documentation part below.
 
-## Documentation - addTab
+## Documentation - Tab
+<img alt="Easy Integration" align="right" width="380" src="tab-widget.png"/>
 
+### addTab
 The current version allows you to add a Feedback button to your page:
 ```JavaScript
 Stomt.push(['addTab', options]);
@@ -61,8 +61,6 @@ Stomt.push(['addTab', options]);
 You can use the `showTab(options)` method to show the widget if it is hidden.
 ```JavaScript
 Stomt.push(['showTab', options]);
-// or if you are sure the JS finished loading
-Stomt.showTab(options);
 ```
 
 ### hideTab
@@ -70,8 +68,6 @@ Stomt.showTab(options);
 You can use the `hideTab()` method to hide the widget.
 ```JavaScript
 Stomt.push(['hideTag']);
-// or if you are sure the JS finished loading
-Stomt.hideTab();
 ```
 
 ### toggleTab
@@ -79,8 +75,6 @@ Stomt.hideTab();
 You can use the `toggleTab(options)` method to toggle the widget.
 ```JavaScript
 Stomt.push(['toggleTab']);
-// or if you are sure the JS finished loading
-Stomt.toggleTab();
 ```
 
 ### updateTabFile
@@ -90,78 +84,34 @@ You can use the `updateTabFile()` method to set a new file for the Tab Widget. T
 Stomt.updateTabFile(file);
 ```
 
-### options.targetId
+### options
+The `options` param has to be handed into the `addTab` function to initialize the widget and can be handed into the `showTab` function to update the widget state.
 
-The `options` object has to contain a `targetId`. The `targetId` is your pages identifier you can copy it from the pages url (https://www.stomt.com/stomt-javascript-sdk -> stomt-javascript-sdk). All stomts created using the JavaScript-SDK will be addressed to this page:
+| Property | Type | Description |
+| :--- | :--- | :--- |
+| `targetId` _(required)_ | String | The `targetId` is your pages identifier you can copy it from the pages url (https://www.stomt.com/stomt-javascript-sdk -> stomt-javascript-sdk). All stomts created using the JavaScript-SDK will be addressed to this page. |
+| `position` | String | You can set the `position` of the button, the default position is `right`. If required you can align the button to the left side by passing `position: 'left'`. |
+| `label` | String | The default label of the button is `Feedback`, you can change that by passing another `label`. |
+| `colorText` | String | To change the colors used for the widget button you have three options to configure. The first one is `colorText`, it allows you to change the text color (default: `#FFFFFF`). |
+| `colorBackground` | String | The `colorBackground` option allows you to change the background color of the button (default: `#0091C9`). |
+| `colorHover` | String | The `colorHover` option allows you to change the background color of the button when the user hovers it (default: `#04729E`). |
+| `file` | Object | By attaching a JSON object with the properties `name` (String) and `data` (Object) to the property `file`, data can be attached to STOMTs that are submitted from the Tab Widget. |
+| `showClose` | Boolean | Via the `showClose` property, you can specify whether the Close Icon in the Tab Widget should be shown or not (default: `true`). |
+| `preload` | Boolean | By setting the property `preload` to `true`, you can tell the Widget to preload the Tab iframe in the background (default: `false`). This reduces the loading delay when showing the Tab for the first time. |
+
+Example:
 ```JavaScript
-Stomt.push(['addTab', {targetId: 'stomt-javascript-sdk'}]);
+var options = {
+  targetId: 'stomt-javascript-sdk', 
+  position: 'left', 
+  label: 'Speak your wish!', 
+  colorText: '#FFFFFF', 
+  file: {name: 'fileName.file', data: Object}, 
+  showClose: false
+};
+
+Stomt.push(['addTab', options]);
 ```
-
-### options.position
-
-Optionally you can set the `position` of the button, the default position is `right`. If required you can align the button to the left side by passing `position: 'left'`:
-```JavaScript
-Stomt.push(['addTab', {targetId: 'stomt-javascript-sdk', position: 'left'}]);
-```
-
-
-<a href="http://maxklenk.github.io/angular-sample-app/" title="sample application">
-<img alt="Easy Integration" align="right" width="380" src="screenshot-success.png"/>
-</a>
-
-
-### options.label
-
-The default label of the button is `Feedback`, you can change that by passing another `label`:
-```JavaScript
-Stomt.push(['addTab', {targetId: 'stomt-javascript-sdk', label: 'Speak your wish!'}]);
-```
-
-### options.colorText
-
-To change the colors used for the widget button you have three options to configure.
-The first one is `colorText`, it allows you to change the text color (default: `#FFFFFF`):
-```JavaScript
-Stomt.push(['addTab', {targetId: 'stomt-javascript-sdk', colorText: '#FFFFFF'}]);
-```
-
-### options.colorBackground
-
-The `colorBackground` option allows you to change the background color of the button (default: `#0091C9`):
-```JavaScript
-Stomt.push(['addTab', {targetId: 'stomt-javascript-sdk', colorBackground: '#0091C9'}]);
-```
-
-
-### options.colorHover
-
-The `colorHover` option allows you to change the background color of the button when the user hovers it (default: `#04729E`):
-```JavaScript
-Stomt.push(['addTab', {targetId: 'stomt-javascript-sdk', colorHover: '#04729E'}]);
-```
-
-### options.file
-
-By attaching a JSON object with the properties `name` (String) and `data` (Object) to the property `file`, data can be attached to STOMTs that are submitted from the Tab Widget:
-```JavaScript
-Stomt.push(['addTab', {targetId: 'stomt-javascript-sdk', file: {name: 'fileName.file', data: Object}}]);
-```
-Include the file extension in the file name to ensure that it is treated correctly after download.
-
-### options.showClose
-
-Via the `showClose` property, you can specify whether the Close Icon in the Tab Widget should be shown or not (default: `true`):
-```JavaScript
-Stomt.push(['addTab', {targetId: 'stomt-javascript-sdk', showClose: false}]);
-```
-
-### options.preload
-
-By setting the property `preload` to `true`, you can tell the Widget to preload the Tab iframe in the background (default: `false`). This reduces the loading delay when showing the Tab for the first time.
-```JavaScript
-Stomt.push(['addTab', {targetId: 'stomt-javascript-sdk', preload: true}]);
-```
-  
 
 ### Custom CSS
 
@@ -257,114 +207,54 @@ An example for custom styles can be found below:
 ```
 
 
-## Documentation - addFeed
+## Documentation - Feed
+<img alt="Easy Integration" align="middle" width="380" src="feed-widget.png"/>
 
+### addFeed
 The current version allows you to add a STOMT feed somewhere on your page:
 ```JavaScript
 Stomt.push(['addFeed', options]);
 ```
 
-### options.targetId (required)
+### options
+The `options` param has to be handed into the `addFeed` function to initialize the widget.
 
-The `options` object has to contain a `targetId`. The `targetId` is your pages identifier you can copy it from the pages url (https://www.stomt.com/stomt-javascript-sdk -> stomt-javascript-sdk).
-The Feed will show stomts addressed to this page:
+| Property | Type | Description |
+| :--- | :--- | :--- |
+| `targetId` _(required)_ | String | The `options` object has to contain a `targetId`. The `targetId` is your pages identifier you can copy it from the pages url (https://www.stomt.com/stomt-javascript-sdk -> stomt-javascript-sdk). The Feed will show stomts addressed to this page. |
+| `elementId` | String | You can define where you want to show the feed on your page. Simply add an empty element with an id: `<div id="stomt_feed"></div>`,  `stomt_feed` is the default id, if you want to use another id you can use this option and pass your custom elementId. |
+| `callDE` | String | The custom german call-to-action that will be displayed at the top of your feed. |
+| `callEN` | String | The custom english call-to-action that will be displayed at the top of your feed. |
+| `lang` | String | Force the default language of the user interface and the stomt creation form. At the moment, `en` and `de` are available. (default: `en`) |
+| `creation` | Boolean | Hide the creation form by setting `creation` to `false`. (default: true) |
+| `q` | String | Filter the feed for a specific keyword. |
+| `has` | String | Filter the feed for specific stomts, e.g. <br> - `reaction` - with a reaction <br> - `!reaction` - without a reaction |
+| `label` | String | Only show stomts with a specific label attached. |
+| `from` | String | Only show stomts created by a specific user. |
+| `is` | String | Filter what kind of stomts you want to show, e.g. `wish`,`like`. |
+| `resize` | Boolean | Resize the iframe height automatically when the content changes. Set this option to `false` to disable resizing. |
+| `limit` | Integer | Choose how may stomts should be displayed maximal. Only works when `resize` is set to `true`. (default: no limit) |
+| `initial` | Integer | Choose how may stomts should be requested.  Only works when `resize` is set to `true`. (default: `15`) |
+
+Example:
 ```JavaScript
-Stomt.push(['addFeed', {targetId: 'stomt-javascript-sdk'}]);
+var options = {
+  targetId: 'stomt-javascript-sdk', 
+  elementId: 'custom-element', 
+  callDE: 'Sags mir', 
+  callEN: 'Tell me', 
+  lang: 'de', 
+  creation: false,
+  q: 'improve',
+  has: 'reaction',
+  label: 'discuss',
+  from: 'userID',
+  resize: false,
+  initial: 20,
+};
+
+Stomt.push(['addFeed', options]);
 ```
-
-### options.elementId (default: `stomt_feed`)
-You can define where you want to show the feed on your page. Simply add an empty element with an id: `<div id="stomt_feed"></div>`,  `stomt_feed` is the default id, if you want to use another id you can use this option and pass your custom elementId.
-
-```JavaScript
-Stomt.push(['addFeed', {targetId: 'stomt-javascript-sdk', elementId: 'custom-element'}]);
-```
-
-### options.callDE
-The custom german call-to-action that will be displayed at the top of your feed.
-
-```JavaScript
-Stomt.push(['addFeed', {targetId: 'stomt-javascript-sdk', callDE: 'Sags mir'}]);
-```
-
-### options.callEN
-The custom english call-to-action that will be displayed at the top of your feed.
-
-```JavaScript
-Stomt.push(['addFeed', {targetId: 'stomt-javascript-sdk', callEN: 'Tell me'}]);
-```
-
-### options.lang
-Force the default language of the user interface and the stomt creation form.
-```JavaScript
-Stomt.push(['addFeed', {targetId: 'stomt-javascript-sdk', lang: 'de'}]);
-```
-
-### options.creation (default: true)
-Hide the creation form by setting `creation` to `false`.
-
-```JavaScript
-Stomt.push(['addFeed', {targetId: 'stomt-javascript-sdk', creation: false}]);
-```
-
-### options.q
-Filter the feed for a specific keyword.
-
-```JavaScript
-Stomt.push(['addFeed', {targetId: 'stomt-javascript-sdk', q: 'improve'}]);
-```
-
-### options.has
-Filter the feed for specific stomts, e.g.
-* `reaction` - with a reaction
-* `!reaction` - without a reaction
-
-```JavaScript
-Stomt.push(['addFeed', {targetId: 'stomt-javascript-sdk', has: 'reaction'}]);
-```
-
-### options.label
-Only show stomts with a specific label attached.
-
-```JavaScript
-Stomt.push(['addFeed', {targetId: 'stomt-javascript-sdk', label: 'discuss'}]);
-```
-
-### options.from
-Only show stomts created by a specific user.
-
-```JavaScript
-Stomt.push(['addFeed', {targetId: 'stomt-javascript-sdk', from: 'userID'}]);
-```
-
-### options.is
-Filter what kind of stomts you want to show, e.g. `wish`,`like`
-
-```JavaScript
-Stomt.push(['addFeed', {targetId: 'stomt-javascript-sdk', is: 'wish'}]);
-```
-
-### options.resize
-Resize the iframe height automatically when the content changes. Set this option to `false` to disable resizing.
-
-```JavaScript
-Stomt.push(['addFeed', {targetId: 'stomt-javascript-sdk', resize: false}]);
-```
-
-### options.limit
-Choose how may stomts should be displayed maximal. (default: no limit)
-
-```JavaScript
-Stomt.push(['addFeed', {targetId: 'stomt-javascript-sdk', limit: 50}]);
-```
-
-
-### options.initial
-Choose how may stomts should be requested. (default: `15`)
-
-```JavaScript
-Stomt.push(['addFeed', {targetId: 'stomt-javascript-sdk', initial: 20}]);
-```
-
 
 ### Custom CSS
 
@@ -384,7 +274,10 @@ For example:
 To change the content inside the iframe use the same method as described above in [addTab - Custom CSS](#custom-css).
 
 
-## Documentation - addCreate
+## Documentation - Create
+<img alt="Easy Integration" align="right" width="380" src="create-widget.png"/>
+
+### addCreate
 
 The current version allows you to add a STOMT creation form somewhere on your page, it searched for an element with the id `stomt_create` and adds the creation form in this element:
 ```JavaScript
@@ -396,64 +289,45 @@ Stomt.push(['addCreate', options]);
 You can use the `showCreate(options)` method to show the widget if it is hidden or if it has been added with the `preload` flag.
 ```JavaScript
 Stomt.push(['showCreate', options]);
-// or if you are sure the JS finished loading
-Stomt.showCreate(options);
 ```
 
 ### hideCreate
 
 You can use the `hideCreate()` method to hide the widget.
 ```JavaScript
-Stomt.push(['hideCreate', options]);
-// or if you are sure the JS finished loading
-Stomt.hideCreate(options);
+Stomt.push(['hideCreate']);
 ```
 
 ### updateCreateFile
 
 You can use the `updateCreateFile()` method to set a new file for the Create Widget. The next times a STOMT is created this file is attached.
 ```JavaScript
-Stomt.updateCreateFile(file);
+Stomt.push(['updateCreateFile', file]);
 ```
 
-### options.targetId (required)
+### options
+The `options` param has to be handed into the `addCreate` function to initialize the widget and can be handed into the `showCreate` function to update the widget state.
 
-The `options` object has to contain a `targetId`. The `targetId` is your pages identifier you can copy it from the pages url (https://www.stomt.com/stomt-javascript-sdk -> stomt-javascript-sdk).
-The Feed will show stomts addressed to this page:
+| Property | Type | Description |
+| :--- | :--- | :--- |
+| `targetId` _(required)_ | String | The `options` object has to contain a `targetId`. The `targetId` is your pages identifier you can copy it from the pages url (https://www.stomt.com/stomt-javascript-sdk -> stomt-javascript-sdk). All stomts created using the JavaScript-SDK will be addressed to this page. |
+| `elementId` | String | You can define where you want to show the feed on your page. Simply add an empty element with an id: `<div id="stomt_create"></div>`,  `stomt_create` is the default id, if you want to use another id you can use this option and pass your custom elementId. |
+| `lang` | String | Force the default language of the user interface and the stomt creation form. At the moment, `en` and `de` are available. (default: `en`) |
+| `file` | Object | By attaching a JSON object with the properties `name` (String) and `data` (Object) to the property `file`, data can be attached to STOMTs that are submitted from the Create Widget. |
+| `preload` | Boolean | By setting the property `preload` to `true`, you can tell the Widget to preload the Create iframe in the background (default: `false`). This reduces the loading delay when showing the Widget for the first time. <br>Important: When using the `preload` flag, the iframe will not be shown initially. You have to explicitly show it via `Stomt.showCreate`. |
+
+Example:
 ```JavaScript
-Stomt.push(['addCreate', {targetId: 'stomt-javascript-sdk'}]);
+var options = {
+  targetId: 'stomt-javascript-sdk', 
+  elementId: 'custom-element', 
+  lang: 'de', 
+  file: {name: 'fileName.file', data: Object}, 
+  preload: true
+};
+
+Stomt.push(['addCreate', options]);
 ```
-
-### options.elementId (default: `stomt_create`)
-You can define where you want to show the feed on your page. Simply add an empty element with an id: `<div id="stomt_create"></div>`,  `stomt_create` is the default id, if you want to use another id you can use this option and pass your custom elementId.
-
-```JavaScript
-Stomt.push(['addCreate', {targetId: 'stomt-javascript-sdk', elementId: 'custom-element'}]);
-```
-
-### options.lang
-Force the default language of the user interface and the stomt creation form.
-```JavaScript
-Stomt.push(['addCreate', {targetId: 'stomt-javascript-sdk', lang: 'de'}]);
-```
-
-### options.file
-
-By attaching a JSON object with the properties `name` (String) and `data` (Object) to the property `file`, data can be attached to STOMTs that are submitted from the Create Widget:
-```JavaScript
-Stomt.push(['addCreate', {targetId: 'stomt-javascript-sdk', file: {name: 'fileName.file', data: Object}}]);
-```
-Include the file extension in the file name to ensure that it is treated correctly after download.
-
-### options.preload
-
-By setting the property `preload` to `true`, you can tell the Widget to preload the Create iframe in the background (default: `false`). This reduces the loading delay when showing the Widget for the first time. 
-
-Important: When using the `preload` flag, the iframe will not be shown initially. You have to explicitly show it via `Stomt.showCreate`.
-```JavaScript
-Stomt.push(['addCreate', {targetId: 'stomt-javascript-sdk', preload: true}]);
-```
-  
 
 ### Custom CSS
 
@@ -467,23 +341,24 @@ function callback (data) {
   ...
 }
 
+// to add the callback
 Stomt.push(['registerWidgetListener', 'eventType', callback]);
-// or if you are sure the JS finished loading
-Stomt.registerWidgetListener('eventType', callback);
+
 // to remove the callback
-Stomt.removeWidgetListener('eventType', callback)
+Stomt.push(['removeWidgetListener', 'eventType', callback]);
 ```
 
 Available events are:
-- for the Feed Widget: 
-    - `stomtFeed-resize`: listen to resize events of the iframe. Only works when the `resize` flag is set to true.
-- for the Tab Widget:
-    - `stomtTab-hide`/`stomtTab-show`: is fired when the visibility of the Tab Widget changes.
-- for the Create Widget:
-    - `stomtCreate-hide`/`stomtCreate-show`: is fired when the visibility of the Create Widget changes.
-- for all Widgets:
-    - `widgetType` + `-stomtCreated`: is fired when a user submitted a STOMT. The event data handed to the callback contains the created STOMT and the SDK the event originated from.
-    - `widgetType` + `-subscribed`: is fired when a user subscribed your target via the Widget. The event data handed to the callback contains the email or phone number used to subscribe and the SDK the event originated from.
+
+| eventType | Description |
+| :--- | :--- |   
+| `stomtFeed-resize` | listen to resize events of the Feed Widget iframe. Only works when the `resize` flag is set to true. |
+| `stomtTab-hide` / `stomtTab-show` | is fired when the visibility of the Tab Widget changes. |
+| `stomtCreate-hide` / `stomtCreate-show` | is fired when the visibility of the Create Widget changes. |
+| `widgetType-stomtCreated` | is fired when a user submitted a STOMT. The event data handed to the callback contains the created STOMT and the SDK the event originated from. |
+| `widgetType-subscribed` | is fired when a user subscribed your target via the Widget. The event data handed to the callback contains the email or phone number used to subscribe and the SDK the event originated from. |
+
+(replace `widgetType` with `stomtFeed`, `stomtTab` or `stomtCreate`)
 
 ## WebView / Iframe
 
@@ -508,6 +383,7 @@ We would love to see you contributing with your ideas to the STOMT JavaScript-SD
 ## Authors
 
 * [Max Klenk](https://github.com/maxklenk)
+* [Mathias Möller](https://github.com/mathiasmoeller)
 
 ## More about STOMT
 
