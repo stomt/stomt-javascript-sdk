@@ -74,7 +74,7 @@ Stomt.push(['hideTag']);
 
 You can use the `toggleTab(options)` method to toggle the widget.
 ```JavaScript
-Stomt.push(['toggleTab']);
+Stomt.push(['toggleTab', options]);
 ```
 
 ### updateTabFile
@@ -211,7 +211,7 @@ An example for custom styles can be found below:
 <img alt="Easy Integration" align="middle" width="380" src="feed-widget.png"/>
 
 ### addFeed
-The current version allows you to add a STOMT feed somewhere on your page:
+The current version allows you to add a STOMT feed somewhere on your page. It searched for an element with the id `stomt_feed` and adds the creation form in this element:
 ```JavaScript
 Stomt.push(['addFeed', options]);
 ```
@@ -300,7 +300,7 @@ Stomt.push(['hideCreate']);
 
 ### updateCreateFile
 
-You can use the `updateCreateFile()` method to set a new file for the Create Widget. The next times a STOMT is created this file is attached.
+You can use the `updateCreateFile(file)` method to set a new file for the Create Widget. The next times a STOMT is created this file is attached.
 ```JavaScript
 Stomt.push(['updateCreateFile', file]);
 ```
@@ -355,10 +355,10 @@ Available events are:
 | `stomtFeed-resize` | listen to resize events of the Feed Widget iframe. Only works when the `resize` flag is set to true. |
 | `stomtTab-hide` / `stomtTab-show` | is fired when the visibility of the Tab Widget changes. |
 | `stomtCreate-hide` / `stomtCreate-show` | is fired when the visibility of the Create Widget changes. |
-| `widgetType-stomtCreated` | is fired when a user submitted a STOMT. The event data handed to the callback contains the created STOMT and the SDK the event originated from. |
-| `widgetType-subscribed` | is fired when a user subscribed your target via the Widget. The event data handed to the callback contains the email or phone number used to subscribe and the SDK the event originated from. |
+| `[WIDGET-TYPE]-stomtCreated` | is fired when a user submitted a STOMT. The event data handed to the callback contains the created STOMT and the SDK the event originated from. |
+| `[WIDGET-TYPE]-subscribed` | is fired when a user subscribed your target via the Widget. The event data handed to the callback contains the email or phone number used to subscribe and the SDK the event originated from. |
 
-(replace `widgetType` with `stomtFeed`, `stomtTab` or `stomtCreate`)
+(replace `[WIDGET-TYPE]` with `stomtFeed`, `stomtTab` or `stomtCreate`)
 
 ## WebView / Iframe
 
