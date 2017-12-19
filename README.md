@@ -38,11 +38,11 @@ To install the STOMT JavaScript-SDK you only have to add the following lines to 
     s.parentNode.insertBefore(t,s);
   })(window, document, 'script', 'https://www.stomt.com/widget.js');
   
-  // ADJUST THE 'PAGENAME' to your businesses username 
-  // -> https://www.stomt.com/my-business -> my-business
-  Stomt.push(['addTab', {targetId: 'PAGENAME'}]);
-  Stomt.push(['addFeed', {targetId: 'PAGENAME'}]);
-  Stomt.push(['addCreate', {targetId: 'PAGENAME'}]);
+  // Adjust the 'APP_ID' to your application id 
+  // you can find it here: https://www.stomt.com/YOUR_PAGE/apps
+  Stomt.push(['addTab', {appId: 'APP_ID'}]);
+  Stomt.push(['addFeed', {appId: 'APP_ID'}]);
+  Stomt.push(['addCreate', {appId: 'APP_ID'}]);
 </script>
 ```
 Copy & paste, done! You have further options to customize the widget. See the documentation part below.
@@ -89,7 +89,8 @@ The `options` param has to be handed into the `addTab` function to initialize th
 
 | Property | Type | Description |
 | :--- | :--- | :--- |
-| `targetId` _(required)_ | String | The `targetId` is your pages identifier you can copy it from the pages url (https://www.stomt.com/stomt-javascript-sdk -> stomt-javascript-sdk). All stomts created using the JavaScript-SDK will be addressed to this page. |
+| `appId` _(required)_ | String | The `appId` is your pages application id. You can find it in your application overview in STOMT (https://www.stomt.com/YOUR_PAGE/apps). The target connected to this application id will be used as the default target, if no `targetId` has been specified. |
+| `targetId` | String | The `targetId` is the page identifier for the page you want to address the wishes to. You can copy it from the pages url (https://www.stomt.com/stomt-javascript-sdk -> stomt-javascript-sdk). All stomts created using the JavaScript-SDK will be addressed to this page. Setting a `targetId` will also disable the possibility to change the target in the STOMT form. |
 | `position` | String | You can set the `position` of the button, the default position is `right`. If required you can align the button to the left side by passing `position: 'left'`. |
 | `label` | String | The default label of the button is `Feedback`, you can change that by passing another `label`. |
 | `colorText` | String | To change the colors used for the widget button you have three options to configure. The first one is `colorText`, it allows you to change the text color (default: `#FFFFFF`). |
@@ -101,8 +102,12 @@ The `options` param has to be handed into the `addTab` function to initialize th
 
 Example:
 ```JavaScript
+// setting the target to the same target your appId is linked to makes sense, 
+// as it disables the possibility to change the target in the STOMT form.
+
 var options = {
-  targetId: 'stomt-javascript-sdk', 
+  appId: 'YOUR_APP_ID',
+  targetId: 'stomt-javascript-sdk',
   position: 'left', 
   label: 'Speak your wish!', 
   colorText: '#FFFFFF', 
@@ -221,7 +226,8 @@ The `options` param has to be handed into the `addFeed` function to initialize t
 
 | Property | Type | Description |
 | :--- | :--- | :--- |
-| `targetId` _(required)_ | String | The `options` object has to contain a `targetId`. The `targetId` is your pages identifier you can copy it from the pages url (https://www.stomt.com/stomt-javascript-sdk -> stomt-javascript-sdk). The Feed will show stomts addressed to this page. |
+| `appId` _(required)_ | String | The `appId` is your pages application id. You can find it in your application overview in STOMT (https://www.stomt.com/YOUR_PAGE/apps). The target connected to this application id will be used as the default target, if no `targetId` has been specified. |
+| `targetId` | String | The `targetId` is the identifier of the page you want to connect to. The Feed will show STOMTs addressed to this page. You can copy it from the pages url (https://www.stomt.com/stomt-javascript-sdk -> stomt-javascript-sdk). |
 | `elementId` | String | You can define where you want to show the feed on your page. Simply add an empty element with an id: `<div id="stomt_feed"></div>`,  `stomt_feed` is the default id, if you want to use another id you can use this option and pass your custom elementId. |
 | `callDE` | String | The custom german call-to-action that will be displayed at the top of your feed. |
 | `callEN` | String | The custom english call-to-action that will be displayed at the top of your feed. |
@@ -239,7 +245,8 @@ The `options` param has to be handed into the `addFeed` function to initialize t
 Example:
 ```JavaScript
 var options = {
-  targetId: 'stomt-javascript-sdk', 
+  appId: 'YOUR_APP_ID',
+  targetId: 'stomt-javascript-sdk',
   elementId: 'custom-element', 
   callDE: 'Sags mir', 
   callEN: 'Tell me', 
@@ -310,7 +317,8 @@ The `options` param has to be handed into the `addCreate` function to initialize
 
 | Property | Type | Description |
 | :--- | :--- | :--- |
-| `targetId` _(required)_ | String | The `options` object has to contain a `targetId`. The `targetId` is your pages identifier you can copy it from the pages url (https://www.stomt.com/stomt-javascript-sdk -> stomt-javascript-sdk). All stomts created using the JavaScript-SDK will be addressed to this page. |
+| `appId` _(required)_ | String | The `appId` is your pages application id. You can find it in your application overview in STOMT (https://www.stomt.com/YOUR_PAGE/apps). The target connected to this application id will be used as the default target, if no `targetId` has been specified. |
+| `targetId` | String | The `targetId` is the page identifier for the page you want to address the wishes to. You can copy it from the pages url (https://www.stomt.com/stomt-javascript-sdk -> stomt-javascript-sdk). All stomts created using the JavaScript-SDK will be addressed to this page. Setting a `targetId` will also disable the possibility to change the target in the STOMT form. |
 | `elementId` | String | You can define where you want to show the feed on your page. Simply add an empty element with an id: `<div id="stomt_create"></div>`,  `stomt_create` is the default id, if you want to use another id you can use this option and pass your custom elementId. |
 | `lang` | String | Force the default language of the user interface and the stomt creation form. At the moment, `en` and `de` are available. (default: `en`) |
 | `file` | Object | By attaching a JSON object with the properties `name` (String) and `data` (Object) to the property `file`, data can be attached to STOMTs that are submitted from the Create Widget. |
@@ -318,8 +326,12 @@ The `options` param has to be handed into the `addCreate` function to initialize
 
 Example:
 ```JavaScript
+// setting the target to the same target your appId is linked to makes sense, 
+// as it disables the possibility to change the target in the STOMT form.
+
 var options = {
-  targetId: 'stomt-javascript-sdk', 
+  appId: 'YOUR_APP_ID',
+  targetId: 'stomt-javascript-sdk',
   elementId: 'custom-element', 
   lang: 'de', 
   file: {name: 'fileName.file', data: Object}, 
