@@ -1,4 +1,4 @@
-# STOMT JavaScript-SDK [![Stomt API](https://img.shields.io/badge/stomt-v2.10.X-brightgreen.svg)](https://rest.stomt.com/)
+# STOMT JavaScript-SDK [![Stomt API](https://img.shields.io/badge/STOMT-API-brightgreen.svg)](https://rest.stomt.com/)
 
 <img alt="Easy Integration" align="right" width="380" src="tab-widget.png"/>
 
@@ -22,7 +22,7 @@ View the live demo [here](https://stomt.github.io/stomt-javascript-sdk/). The pr
 
 ## Installation
 
-To install the STOMT JavaScript-SDK you only have to add the following lines to the bottom of you html file and adjust the "targetId" at the bottom of the script to your business profiles username. 
+To install the STOMT JavaScript-SDK you only have to add the following lines to the bottom of you html file and adjust the "appId" at the bottom of the script to your business profiles username. 
 
 ```html
 <div id="stomt_feed"></div> <!-- if you want to include a feed -->
@@ -89,8 +89,7 @@ The `options` param has to be handed into the `addTab` function to initialize th
 
 | Property | Type | Description |
 | :--- | :--- | :--- |
-| `appId` _(required)_ | String | The `appId` is your pages application id. You can find it in your application overview in STOMT (https://www.stomt.com/YOUR_PAGE/apps). The target connected to this application id will be used as the default target, if no `targetId` has been specified. |
-| `targetId` | String | The `targetId` is the page identifier for the page you want to address the wishes to. You can copy it from the pages url (https://www.stomt.com/stomt-javascript-sdk -> stomt-javascript-sdk). All stomts created using the JavaScript-SDK will be addressed to this page. Setting a `targetId` will also disable the possibility to change the target in the STOMT form. |
+| `appId` _(required)_ | String | The `appId` is your pages application id. You can find it in your application overview in STOMT (https://www.stomt.com/YOUR_PAGE/apps). The target connected to this application id will be used as target. |
 | `position` | String | You can set the `position` of the button, the default position is `right`. If required you can align the button to the left side by passing `position: 'left'`. |
 | `label` | String | The default label of the button is `Feedback`, you can change that by passing another `label`. |
 | `colorText` | String | To change the colors used for the widget button you have three options to configure. The first one is `colorText`, it allows you to change the text color (default: `#FFFFFF`). |
@@ -99,6 +98,7 @@ The `options` param has to be handed into the `addTab` function to initialize th
 | `file` | Object | By attaching a JSON object with the properties `name` (String) and `data` (Object) to the property `file`, data can be attached to STOMTs that are submitted from the Tab Widget. |
 | `showClose` | Boolean | Via the `showClose` property, you can specify whether the Close Icon in the Tab Widget should be shown or not (default: `true`). |
 | `preload` | Boolean | By setting the property `preload` to `true`, you can tell the Widget to preload the Tab iframe in the background (default: `false`). This reduces the loading delay when showing the Tab for the first time. |
+| `targetId` _(deprecated)_ | String | The `targetId` is the page identifier for the page you want to address the wishes to. You can copy it from the pages url (https://www.stomt.com/stomt-javascript-sdk -> stomt-javascript-sdk). All stomts created using the JavaScript-SDK will be addressed to this page. |
 
 Example:
 ```JavaScript
@@ -107,7 +107,6 @@ Example:
 
 var options = {
   appId: 'YOUR_APP_ID',
-  targetId: 'stomt-javascript-sdk',
   position: 'left', 
   label: 'Speak your wish!', 
   colorText: '#FFFFFF', 
@@ -226,8 +225,7 @@ The `options` param has to be handed into the `addFeed` function to initialize t
 
 | Property | Type | Description |
 | :--- | :--- | :--- |
-| `appId` _(required)_ | String | The `appId` is your pages application id. You can find it in your application overview in STOMT (https://www.stomt.com/YOUR_PAGE/apps). The target connected to this application id will be used as the default target, if no `targetId` has been specified. |
-| `targetId` | String | The `targetId` is the identifier of the page you want to connect to. The Feed will show STOMTs addressed to this page. You can copy it from the pages url (https://www.stomt.com/stomt-javascript-sdk -> stomt-javascript-sdk). |
+| `appId` _(required)_ | String | The `appId` is your pages application id. You can find it in your application overview in STOMT (https://www.stomt.com/YOUR_PAGE/apps). The target connected to this application id will be used as target. |
 | `elementId` | String | You can define where you want to show the feed on your page. Simply add an empty element with an id: `<div id="stomt_feed"></div>`,  `stomt_feed` is the default id, if you want to use another id you can use this option and pass your custom elementId. |
 | `callDE` | String | The custom german call-to-action that will be displayed at the top of your feed. |
 | `callEN` | String | The custom english call-to-action that will be displayed at the top of your feed. |
@@ -241,12 +239,12 @@ The `options` param has to be handed into the `addFeed` function to initialize t
 | `resize` | Boolean | Resize the iframe height automatically when the content changes. Set this option to `false` to disable resizing. |
 | `limit` | Integer | Choose how may stomts should be displayed maximal. Only works when `resize` is set to `true`. (default: no limit) |
 | `initial` | Integer | Choose how may stomts should be requested.  Only works when `resize` is set to `true`. (default: `15`) |
+| `targetId` _(deprecated)_ | String | The `targetId` is the identifier of the page you want to connect to. The Feed will show STOMTs addressed to this page. You can copy it from the pages url (https://www.stomt.com/stomt-javascript-sdk -> stomt-javascript-sdk). |
 
 Example:
 ```JavaScript
 var options = {
   appId: 'YOUR_APP_ID',
-  targetId: 'stomt-javascript-sdk',
   elementId: 'custom-element', 
   callDE: 'Sags mir', 
   callEN: 'Tell me', 
@@ -317,12 +315,12 @@ The `options` param has to be handed into the `addCreate` function to initialize
 
 | Property | Type | Description |
 | :--- | :--- | :--- |
-| `appId` _(required)_ | String | The `appId` is your pages application id. You can find it in your application overview in STOMT (https://www.stomt.com/YOUR_PAGE/apps). The target connected to this application id will be used as the default target, if no `targetId` has been specified. |
-| `targetId` | String | The `targetId` is the page identifier for the page you want to address the wishes to. You can copy it from the pages url (https://www.stomt.com/stomt-javascript-sdk -> stomt-javascript-sdk). All stomts created using the JavaScript-SDK will be addressed to this page. Setting a `targetId` will also disable the possibility to change the target in the STOMT form. |
+| `appId` _(required)_ | String | The `appId` is your pages application id. You can find it in your application overview in STOMT (https://www.stomt.com/YOUR_PAGE/apps). The target connected to this application id will be used as target. |
 | `elementId` | String | You can define where you want to show the feed on your page. Simply add an empty element with an id: `<div id="stomt_create"></div>`,  `stomt_create` is the default id, if you want to use another id you can use this option and pass your custom elementId. |
 | `lang` | String | Force the default language of the user interface and the stomt creation form. At the moment, `en` and `de` are available. (default: `en`) |
 | `file` | Object | By attaching a JSON object with the properties `name` (String) and `data` (Object) to the property `file`, data can be attached to STOMTs that are submitted from the Create Widget. |
 | `preload` | Boolean | By setting the property `preload` to `true`, you can tell the Widget to preload the Create iframe in the background (default: `false`). This reduces the loading delay when showing the Widget for the first time. <br>Important: When using the `preload` flag, the iframe will not be shown initially. You have to explicitly show it via `Stomt.showCreate`. |
+| `targetId` _(deprecated)_ | String | The `targetId` is the page identifier for the page you want to address the wishes to. You can copy it from the pages url (https://www.stomt.com/stomt-javascript-sdk -> stomt-javascript-sdk). All stomts created using the JavaScript-SDK will be addressed to this page. Setting a `targetId` will also disable the possibility to change the target in the STOMT form. |
 
 Example:
 ```JavaScript
@@ -331,7 +329,6 @@ Example:
 
 var options = {
   appId: 'YOUR_APP_ID',
-  targetId: 'stomt-javascript-sdk',
   elementId: 'custom-element', 
   lang: 'de', 
   file: {name: 'fileName.file', data: Object}, 
@@ -381,9 +378,9 @@ To embed the form use this url: [https://www.stomt.com/widget](https://www.stomt
 
 To embed the feed use this url: [https://www.stomt.com/feedwidget](https://www.stomt.com/feedwidget)
 
-You can attach all the parameters introduced before (`options.targetId`, ...) to customize the feed for your project:
+You can attach all the parameters introduced before (`options.appId`, ...) to customize the feed for your project:
 
-e.g. `https://www.stomt.com/widget?targetId=stomt&callEN=Tell+us+what+you+miss`
+e.g. `https://www.stomt.com/widget?appId=AfRaltKwqi39T8nSXdzPsmCtx&callEN=Tell+us+what+you+miss`
 
 
 
