@@ -248,7 +248,7 @@ The `options` param has to be handed into the `addFeed` function to initialize t
 | `resize` | Boolean | Resize the iframe height automatically when the content changes. Set this option to `false` to disable resizing. |
 | `limit` | Integer | Choose how may stomts should be displayed maximal. Only works when `resize` is set to `true`. (default: no limit) |
 | `initial` | Integer | Choose how may stomts should be requested.  Only works when `resize` is set to `true`. (default: `15`) |
-| `targetId` _(deprecated)_ | String | The `targetId` is the identifier of the page you want to connect to. The Feed will show STOMTs addressed to this page. You can copy it from the pages url (https://www.stomt.com/stomt-javascript-sdk -> stomt-javascript-sdk). |
+| `targetId` _(deprecated)_ | String | The `targetId` is the identifier of the page you want to connect to. The Feed will show stomts addressed to this page. You can copy it from the pages url (https://www.stomt.com/stomt-javascript-sdk -> stomt-javascript-sdk). |
 
 Example:
 ```JavaScript
@@ -293,7 +293,7 @@ To change the content inside the iframe use the same method as described above i
 
 ### addCreate
 
-The current version allows you to add a STOMT creation form somewhere on your page, it searched for an element with the id `stomt_create` and adds the creation form in this element:
+The current version allows you to add a stomt creation form somewhere on your page, it searched for an element with the id `stomt_create` and adds the creation form in this element:
 ```JavaScript
 Stomt.push(['addCreate', options]);
 ```
@@ -314,14 +314,14 @@ Stomt.push(['hideCreate']);
 
 ### updateCreateJSON
 
-You can use the `updateCreateJSON()` method to set a new JSON object for the Create Widget. The next times a STOMT is created this JSON is attached. See options below for more information about JSON data.
+You can use the `updateCreateJSON()` method to set a new JSON object for the Create Widget. The next times a stomt is created this JSON is attached. See options below for more information about JSON data.
 ```JavaScript
 Stomt.push(['updateCreateJSON'. json]);
 ```
 
 ### updateCreateFile
 
-You can use the `updateCreateFile(file)` method to set a new file for the Create Widget. The next times a STOMT is created this file is attached. . See options below for more information about data.
+You can use the `updateCreateFile(file)` method to set a new file for the Create Widget. The next times a stomt is created this file is attached. . See options below for more information about data.
 ```JavaScript
 Stomt.push(['updateCreateFile', file]);
 ```
@@ -334,8 +334,8 @@ The `options` param has to be handed into the `addCreate` function to initialize
 | `appId` _(required)_ | String | The `appId` is your pages application id. You can find it in your application overview in STOMT (https://www.stomt.com/YOUR_PAGE/apps). The target connected to this application id will be used as target. |
 | `elementId` | String | You can define where you want to show the feed on your page. Simply add an empty element with an id: `<div id="stomt_create"></div>`,  `stomt_create` is the default id, if you want to use another id you can use this option and pass your custom elementId. |
 | `lang` | String | Force the default language of the user interface and the stomt creation form. At the moment, `en` and `de` are available. (default: `en`) |
-| `json` | Object | By attaching a JSON object, data can be attached to STOMTs that are submitted from the Create Widget. You can filter STOMTS with attached JSON in `stomt.com/YOUR_TARGET/search` by using the `has:data` filter or filtering for specific keys or key value pairs (e.g. `data:myKey` or `data:myKey:myValue`). You can also attach labels to STOMTS by adding the property `labels`, which contains an array of label names. |
-| `file` | Object | By attaching a JSON object with the properties `name` (String) and `data` (Object) to the property `file`, data can be attached to STOMTs that are submitted from the Create Widget. `data` can be any serialized data format or JSON. If your data is only valid JSON, you can also use the `json` option. |
+| `json` | Object | By attaching a JSON object, data can be attached to stomts that are submitted from the Create Widget. You can filter stomts with attached JSON in `stomt.com/YOUR_TARGET/search` by using the `has:data` filter or filtering for specific keys or key value pairs (e.g. `data:myKey` or `data:myKey:myValue`). You can also attach labels to stomts by adding the property `labels`, which contains an array of label names. |
+| `file` | Object | By attaching a JSON object with the properties `name` (String) and `data` (Object) to the property `file`, data can be attached to stomts that are submitted from the Create Widget. `data` can be any serialized data format or JSON. If your data is only valid JSON, you can also use the `json` option. |
 | `preload` | Boolean | By setting the property `preload` to `true`, you can tell the Widget to preload the Create iframe in the background (default: `false`). This reduces the loading delay when showing the Widget for the first time. <br>Important: When using the `preload` flag, the iframe will not be shown initially. You have to explicitly show it via `Stomt.showCreate`. |
 | `targetId` _(deprecated)_ | String | The `targetId` is the page identifier for the page you want to address the wishes to. You can copy it from the pages url (https://www.stomt.com/stomt-javascript-sdk -> stomt-javascript-sdk). All stomts created using the JavaScript-SDK will be addressed to this page. Setting a `targetId` will also disable the possibility to change the target in the STOMT form. |
 
@@ -382,7 +382,7 @@ Available events are:
 | `stomtFeed-resize` | listen to resize events of the Feed Widget iframe. Only works when the `resize` flag is set to true. |
 | `stomtTab-hide` / `stomtTab-show` | is fired when the visibility of the Tab Widget changes. |
 | `stomtCreate-hide` / `stomtCreate-show` | is fired when the visibility of the Create Widget changes. |
-| `[WIDGET-TYPE]-stomtCreated` | is fired when a user submitted a STOMT. The event data handed to the callback contains the created STOMT and the SDK the event originated from. |
+| `[WIDGET-TYPE]-stomtCreated` | is fired when a user submitted a stomt. The event data handed to the callback contains the created stomt and the SDK the event originated from. |
 | `[WIDGET-TYPE]-subscribed` | is fired when a user subscribed your target via the Widget. The event data handed to the callback contains the email or phone number used to subscribe and the SDK the event originated from. |
 
 (replace `[WIDGET-TYPE]` with `stomtFeed`, `stomtTab` or `stomtCreate`)
