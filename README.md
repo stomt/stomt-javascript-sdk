@@ -102,7 +102,7 @@ The `options` param has to be handed into the `addTab` function to initialize th
 | `colorText` | String | To change the colors used for the widget button you have three options to configure. The first one is `colorText`, it allows you to change the text color (default: `#FFFFFF`). |
 | `colorBackground` | String | The `colorBackground` option allows you to change the background color of the button (default: `#0091C9`). |
 | `colorHover` | String | The `colorHover` option allows you to change the background color of the button when the user hovers it (default: `#04729E`). |
-| `json` | Object | By attaching a JSON object, data can be attached to STOMTs that are submitted from the Tab Widget. You can filter STOMTS with attached JSON in `stomt.com/YOUR_TARGET/search` by using the `has:data` filter or filtering for specific keys or key value pairs (e.g. `data:myKey` or `data:myKey:myValue`) |
+| `json` | Object | By attaching a JSON object, data can be attached to STOMTs that are submitted from the Tab Widget. You can filter STOMTS with attached JSON in `stomt.com/YOUR_TARGET/search` by using the `has:data` filter or filtering for specific keys or key value pairs (e.g. `data:myKey` or `data:myKey:myValue`). You can also attach labels to STOMTS by adding the property `labels`, which contains an array of label names. |
 | `file` | Object | By attaching a JSON object with the properties `name` (String) and `data` (Object) to the property `file`, data can be attached to STOMTs that are submitted from the Tab Widget. `data` can be any serialized data format or JSON. If your data is only valid JSON, you can also use the `json` option. |
 | `showClose` | Boolean | Via the `showClose` property, you can specify whether the Close Icon in the Tab Widget should be shown or not (default: `true`). |
 | `preload` | Boolean | By setting the property `preload` to `true`, you can tell the Widget to preload the Tab iframe in the background (default: `false`). This reduces the loading delay when showing the Tab for the first time. |
@@ -119,7 +119,7 @@ var options = {
   label: 'Speak your wish!', 
   colorText: '#FFFFFF', 
   file: {name: 'fileName.file', data: Object},
-  json: {myKey: 'myValue'},
+  json: {myKey: 'myValue', labels: ['goodLabel', 'testLabel']},
   showClose: false
 };
 
@@ -334,7 +334,7 @@ The `options` param has to be handed into the `addCreate` function to initialize
 | `appId` _(required)_ | String | The `appId` is your pages application id. You can find it in your application overview in STOMT (https://www.stomt.com/YOUR_PAGE/apps). The target connected to this application id will be used as target. |
 | `elementId` | String | You can define where you want to show the feed on your page. Simply add an empty element with an id: `<div id="stomt_create"></div>`,  `stomt_create` is the default id, if you want to use another id you can use this option and pass your custom elementId. |
 | `lang` | String | Force the default language of the user interface and the stomt creation form. At the moment, `en` and `de` are available. (default: `en`) |
-| `json` | Object | By attaching a JSON object, data can be attached to STOMTs that are submitted from the Create Widget. You can filter STOMTS with attached JSON in `stomt.com/YOUR_TARGET/search` by using the `has:data` filter or filtering for specific keys or key value pairs (e.g. `data:myKey` or `data:myKey:myValue`) |
+| `json` | Object | By attaching a JSON object, data can be attached to STOMTs that are submitted from the Create Widget. You can filter STOMTS with attached JSON in `stomt.com/YOUR_TARGET/search` by using the `has:data` filter or filtering for specific keys or key value pairs (e.g. `data:myKey` or `data:myKey:myValue`). You can also attach labels to STOMTS by adding the property `labels`, which contains an array of label names. |
 | `file` | Object | By attaching a JSON object with the properties `name` (String) and `data` (Object) to the property `file`, data can be attached to STOMTs that are submitted from the Create Widget. `data` can be any serialized data format or JSON. If your data is only valid JSON, you can also use the `json` option. |
 | `preload` | Boolean | By setting the property `preload` to `true`, you can tell the Widget to preload the Create iframe in the background (default: `false`). This reduces the loading delay when showing the Widget for the first time. <br>Important: When using the `preload` flag, the iframe will not be shown initially. You have to explicitly show it via `Stomt.showCreate`. |
 | `targetId` _(deprecated)_ | String | The `targetId` is the page identifier for the page you want to address the wishes to. You can copy it from the pages url (https://www.stomt.com/stomt-javascript-sdk -> stomt-javascript-sdk). All stomts created using the JavaScript-SDK will be addressed to this page. Setting a `targetId` will also disable the possibility to change the target in the STOMT form. |
@@ -349,7 +349,7 @@ var options = {
   elementId: 'custom-element', 
   lang: 'de', 
   file: {name: 'fileName.file', data: Object},
-  json: {myKey: 'myValue'},
+  json: {myKey: 'myValue', labels: ['goodLabel', 'testLabel']},
   preload: true
 };
 
