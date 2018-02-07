@@ -348,7 +348,8 @@ var options = {
   appId: 'YOUR_APP_ID',
   elementId: 'custom-element', 
   lang: 'de', 
-  file: {name: 'fileName.file', data: Object}, 
+  file: {name: 'fileName.file', data: Object},
+  json: {myKey: 'myValue'},
   preload: true
 };
 
