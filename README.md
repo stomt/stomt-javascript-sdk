@@ -11,7 +11,7 @@
 * [Webview / Iframe](#webview--iframe)
 * [Contribution](#contribution)
 
-Our SDK allows you to add the feedback solution [www.stomt.com](https://www.stomt.com/) to your websites or any other HTML/JavaScript based applications. The SDK currently allows you to add a button to your website, which when used open a STOMT creation form. In the form customers can choose if they want to speak a wish or praise your site and then enter their thoughts. All submitted ideas can then be manages on the STOMT website, where they can be discussed, voted and finally come true. 
+Our SDK allows you to add the feedback solution [www.stomt.com](https://www.stomt.com/) to your websites or any other HTML/JavaScript based applications. 
 
 To connect your site to STOMT, [create a project page on stomt](https://www.stomt.com/createTarget) first.
 
@@ -126,7 +126,7 @@ var options = {
 Stomt.push(['addTab', options]);
 ```
 
-### Custom CSS
+### Custom CSS / Stronger Customization
 
 The feedback button can be styled and positioned using the css class `.stomt-button`.
 
