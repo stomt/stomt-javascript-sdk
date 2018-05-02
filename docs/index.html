@@ -40,77 +40,65 @@
 </div>
 
 <!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="jumbotron">
-    <div class="container">
-        <h1>How to integrate STOMT on your website?</h1>
-    </div>
+<div class="jumbotron knockout">
+    <h1 class="knockout">STOMT For Websites</h1>
+    <h4>Collect and get wishes voted  from your websites</h4>
 </div>
 
 <div class="container">
-    <!-- Example row of columns -->
-    <!--
-    <div class="row visible-md visible-lg">
-      <div class="col-md-4">
-        <h2>Widget</h2>
-        <p></p>
-        <p><a class="btn btn-primary" href="#widget" role="button">Learn how &raquo;</a></p>
-      </div>
-      <div class="col-md-4">
-        <h2>Inline Feed</h2>
-        <p></p>
-        <p><a class="btn btn-primary" href="#feed" role="button">Watch in action &raquo;</a></p>
-     </div>
-      <div class="col-md-4">
-        <h2>Creation Form</h2>
-        <p></p>
-        <p><a class="btn btn-primary" href="#creation" role="button">Try it &raquo;</a></p>
-      </div>
-    </div>
-    -->
 
     <!-- Widget -->
     <div class="row" id="widget">
-        <div class="col-md-8 col-md-offset-2">
-            <h2 id="install">Widget</h2>
-            <p>Do you see the "Feedback" button to the right? This is how the STOMT website widget looks like. Always just one click away users can leave valuable feedback.</p>
-            <p>To install the stomt JavaScript-SDK you only have to add the following lines to the bottom of you html file and adjust the "appId" at the bottom of the script to your business profiles username:</p>
+        <div class="col-md-8 ">
+            <h3 id="install">Javascript / Website Widget Overview</h3>
+            <p>Do you see the "Feedback" button to the right? This is how the normal STOMT website widget looks like. But our widget supports different kinds of integration, which we show here.</p>
+            <p>Installation:
+                <ol>
+                    <li><a href="http://stomt.com/integrate" title="Generate an App-Id for one of your STOMT pages">Get an App-Id</a></li>
+                    <li>Copy & Paste the widget below or use one of our thirdparty integrations (to the right)</li>
+                    <li><a href="https://github.com/stomt/stomt-javascript-sdk" title="Customize your STOMT web integration">Customize if needed.</a></li>
+                </ol>
+            </p>
             <script src="https://gist.github.com/maxklenk/b6168319d87cdf8be37a35e4b4315b3b.js"></script>
         </div>
-    </div>
 
-    <!-- Third Party Integrationa -->
-    <div class="row" id="integrations">
-        <div class="col-md-8 col-md-offset-2">
-            <h2 id="thirdparty">Thirdparty extensions</h2>
-            <a title="Collect customer feedback from your Wordpress site via STOMT" href="https://wordpress.org/plugins/stomt-instant-feedback-button/" target="_blank"><button class="btn btn-primary">Wordpress</button></a>
-            <a title="Collect customer feedback from your Drupal site via STOMT" href="https://www.drupal.org/project/stomt" target="_blank"><button class="btn btn-primary">Drupal</button></a>
-            <a title="Collect customer feedback from your Kirby CMS site via STOMT" href="https://github.com/stomt/stomt-kirby-extension" target="_blank"><button class="btn btn-primary">Kirby CMS</button></a>
-            <a title="Collect customer feedback from your Joomla site via STOMT" href="https://extensions.joomla.org/extension/stomt-feedback" target="_blank"><button class="btn btn-primary">Joomla</button></a>
-            <a title="Collect customer feedback from your Woltlab site via STOMT" href="https://github.com/stomt/stomt-woltlab-extension" target="_blank"><button class="btn btn-primary">Woltlab</button></a>
-            <a title="Collect customer feedback from your Shopware site via STOMT" href="https://github.com/stomt/stomt-Shopware-extension" target="_blank"><button class="btn btn-primary">Shopware</button></a>
-            <a title="Collect customer feedback from your Vanilla forum via STOMT" href="https://open.vanillaforums.com/addon/stomtfeedback-plugin" target="_blank"><button class="btn btn-primary">Vanilla Forums</button></a>
-            <a title="Collect customer feedback from your NodeBB forum via STOMT" href="https://github.com/stomt/stomt-nodebb-extension" target="_blank"><button class="btn btn-primary">NodeBB</button></a>
-
+        <div class="col-md-2 col-md-offset-1">
+            <h3 id="thirdparty">Thirdparty</h3>
+            <ul class="list-group">
+            <li class="list-group-item"><a title="Collect customer feedback from your Wordpress site via STOMT" href="https://wordpress.org/plugins/stomt-instant-feedback-button/" target="_blank">Wordpress</a>
+            </li><li class="list-group-item"><a title="Collect customer feedback from your Drupal site via STOMT" href="https://www.drupal.org/project/stomt" target="_blank">Drupal</a>
+            </li><li class="list-group-item"><a title="Collect customer feedback from your Kirby CMS site via STOMT" href="https://github.com/stomt/stomt-kirby-extension" target="_blank">Kirby CMS</a>
+            </li><li class="list-group-item"><a title="Collect customer feedback from your Joomla site via STOMT" href="https://extensions.joomla.org/extension/stomt-feedback" target="_blank">Joomla</a>
+            </li><li class="list-group-item"><a title="Collect customer feedback from your Woltlab site via STOMT" href="https://github.com/stomt/stomt-woltlab-extension" target="_blank">Woltlab</a>
+            </li><li class="list-group-item"><a title="Collect customer feedback from your Shopware site via STOMT" href="https://github.com/stomt/stomt-Shopware-extension" target="_blank">Shopware</a>
+            </li><li class="list-group-item"><a title="Collect customer feedback from your Vanilla forum via STOMT" href="https://open.vanillaforums.com/addon/stomtfeedback-plugin" target="_blank">Vanilla Forums</a>
+            </li><li class="list-group-item"><a title="Collect customer feedback from your NodeBB forum via STOMT" href="https://github.com/stomt/stomt-nodebb-extension" target="_blank">NodeBB</a>
+            </li></ul>
         </div>
     </div>
     
     <!-- Creation -->
-    <div class="row" id="creation">
-        <div class="col-md-8 col-md-offset-2">
-            <h2 id="inline-creation">Creation Form</h2>
-            <p>Add a STOMT creation form on your website to engage with our community or customers. Integrate it after a checkout, logout or other customer interaction to get their feedback as fresh as possible. To add the form have a look at our <a class="" href="https://github.com/stomt/stomt-javascript-sdk">full documentation</a>.</p>
+    <div class="row top-buffer" id="creation">
+        <div class="col-md-5">
+            <h3 id="inline-creation">Embedded STOMT Form</h3>
+            <p><b>Installation:</b> After having our script or thirdparty extension installed on your website, use the following snippet anywhere on your page to install this widget.</p>
+            <p>Add to your script:
+                <code><samp>Stomt.push(['addFeed', {appId: 'APP_ID'}]);</samp></code></p>
+            <p>Add anywhere:
+                <code><samp>&lt;div id="stomt_feed"&gt;&lt;/div&gt;</samp></code></p>
 
             <div id="stomt_create" class="text-center"></div>
             <script>Stomt.push(['addCreate', {appId: 'AfRaltKwqi39T8nSXdzPsmCtx'}]);</script>
         </div>
-    </div>
 
-    <!-- Feed -->
-    <div class="row" id="feed">
-        <div class="col-md-8 col-md-offset-2">
-            <h2 id="inline-feed">Inline Feed</h2>
-            <p>You want to show your community what others wished for? You want them to vote for the ideas they like most, so you can choose the most popular ones easily? Then the STOMT Inline Feed is the right option for you.</p>
-            <p>To integrate it copy the widget code from above and add the "addFeed" command as documented <a class="" href="https://github.com/stomt/stomt-javascript-sdk">here</a>.</p>
+        <div class="col-md-5 col-md-offset-1">
+            <h3 id="inline-feed">Embedded STOMT Feed</h3>
+            <p><b>Installation:</b> After having our script or thirdparty extension installed on your website, use the following snippet anywhere on your page to install this widget.</p>
+            <p>Add to your script:
+                <code><samp>Stomt.push(['addFeed', {appId: 'APP_ID'}]);</samp></code></p>
+            <p>Add anywhere:
+                <code><samp>&lt;div id="stomt_feed"&gt;&lt;/div&gt;</samp></code></p>
+
             <div id="stomt_feed" class="text-center"></div>
             <script>Stomt.push(['addFeed', {appId: 'AfRaltKwqi39T8nSXdzPsmCtx'}]);</script>
         </div>

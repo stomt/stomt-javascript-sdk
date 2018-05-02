@@ -55,7 +55,21 @@ body {
 }
 
 .jumbotron {
-   background-color:#f9f9f9;
+   background-color:#444;
+
+}
+
+.knockout {
+  background: url(https://cdn.stomt.com/images/header-bg.png);
+  color: black;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  font-weight: bold;
+  font-size: 100px;
+
+  width: 600px;
+  margin: 50px auto;
+  text-align: center;
 }
 
 .jumbotron h1 {
@@ -78,7 +92,7 @@ body {
   min-height: 500px;
 }
 
-
+.top-buffer { margin-top:20px; }
 
 
 
