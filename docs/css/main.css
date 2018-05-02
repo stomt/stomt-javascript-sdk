@@ -1,9 +1,3 @@
-
-
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
 body {
   padding-top: 30px;
   padding-bottom: 20px;
@@ -58,6 +52,10 @@ body {
   white-space: nowrap;
   top: -10px;
   height: 16px;
+}
+
+.jumbotron {
+   background-color:#f9f9f9;
 }
 
 .jumbotron h1 {
