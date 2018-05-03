@@ -54,11 +54,6 @@ body {
   height: 16px;
 }
 
-.jumbotron {
-   background-color:#444;
-
-}
-
 .knockout {
   background: url(https://cdn.stomt.com/images/header-bg.png);
   color: black;
@@ -66,8 +61,6 @@ body {
   -webkit-background-clip: text;
   font-weight: bold;
   font-size: 100px;
-
-  width: 600px;
   margin: 50px auto;
   text-align: center;
 }
@@ -94,8 +87,9 @@ body {
 
 .top-buffer { margin-top:20px; }
 
-
-
+#stomt_create {
+  margin-top: 52px;
+}
 
 
 
