@@ -22,7 +22,7 @@ View the live demo [here](https://stomt.github.io/stomt-javascript-sdk/). The pr
 
 ## Installation
 
-To install the STOMT JavaScript-SDK you only have to add the following lines to the bottom of you html file and adjust the "appId" at the bottom of the script to your business profiles username. 
+To install the STOMT JavaScript-SDK you only have to add the following lines to the bottom of you html file and adjust the "appId" at the bottom of the script to your page's application id. 
 
 ```html
 <div id="stomt_feed"></div> <!-- if you want to include a feed -->
