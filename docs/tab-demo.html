@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>STOMT Tab Widget Demo</title>
+</head>
+<body>
+
+<script>
+  // Include the STOMT JavaScript SDK
+  (function(w, d, n, r, t, s){
+    w.Stomt = w.Stomt||[];
+    t = d.createElement(n);
+    s = d.getElementsByTagName(n)[0];
+    t.async=1;
+    t.src=r;
+    s.parentNode.insertBefore(t,s);
+  })(window, document, 'script', 'https://www.stomt.com/widget.js');
+
+  // Adjust the 'APP_ID' to your application id
+  // you can find it here: https://www.stomt.com/YOUR_PAGE/apps
+  Stomt.push(['addTab', {appId: 'AfRaltKwqi39T8nSXdzPsmCtx'}]);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>STOMT Create Widget Demo</title>
+</head>
+<body>
+
+
+<div id="stomt_create"></div>
+<script>
+  // Include the STOMT JavaScript SDK
+  (function(w, d, n, r, t, s){
+    w.Stomt = w.Stomt||[];
+    t = d.createElement(n);
+    s = d.getElementsByTagName(n)[0];
+    t.async=1;
+    t.src=r;
+    s.parentNode.insertBefore(t,s);
+  })(window, document, 'script', 'https://www.stomt.com/widget.js');
+
+  // Adjust the 'APP_ID' to your application id
+  // you can find it here: https://www.stomt.com/YOUR_PAGE/apps
+  Stomt.push(['addCreate', {appId: 'AfRaltKwqi39T8nSXdzPsmCtx'}]);
+</script>
+
+<style>
+  .stomt-create-iframe {
+    min-height: 335px;
+    max-height: 100%;
+    width: 100%;
+    max-width: 440px;
+    overflow: hidden;
+    border: none;
+    margin: auto;
+  }
+</style>
+
+</body>
+</html>
