@@ -236,8 +236,6 @@ The `options` param has to be handed into the `addFeed` function to initialize t
 | :--- | :--- | :--- |
 | `appId` _(required)_ | String | The `appId` is your pages application id. You can find it in your application overview in STOMT (https://www.stomt.com/YOUR_PAGE/apps). The target connected to this application id will be used as target. |
 | `elementId` | String | You can define where you want to show the feed on your page. Simply add an empty element with an id: `<div id="stomt_feed"></div>`,  `stomt_feed` is the default id, if you want to use another id you can use this option and pass your custom elementId. |
-| `callDE` | String | The custom german call-to-action that will be displayed at the top of your feed. |
-| `callEN` | String | The custom english call-to-action that will be displayed at the top of your feed. |
 | `lang` | String | Force the default language of the user interface and the stomt creation form. At the moment, `en` and `de` are available. (default: `en`) |
 | `creation` | Boolean | Hide the creation form by setting `creation` to `false`. (default: true) |
 | `q` | String | Filter the feed for a specific keyword. |
@@ -255,8 +253,6 @@ Example:
 var options = {
   appId: 'YOUR_APP_ID',
   elementId: 'custom-element', 
-  callDE: 'Sags mir', 
-  callEN: 'Tell me', 
   lang: 'de', 
   creation: false,
   q: 'improve',
@@ -398,7 +394,7 @@ To embed the feed use this url: [https://www.stomt.com/feedwidget](https://www.s
 
 You can attach all the parameters introduced before (`options.appId`, ...) to customize the feed for your project:
 
-e.g. `https://www.stomt.com/widget?appId=AfRaltKwqi39T8nSXdzPsmCtx&callEN=Tell+us+what+you+miss`
+e.g. `https://www.stomt.com/widget?appId=AfRaltKwqi39T8nSXdzPsmCtx
 
 
 
